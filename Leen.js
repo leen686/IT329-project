@@ -13,7 +13,7 @@ statusEl.textContent = "JS شغال ✅";
 btnHello.addEventListener("click", () => {
   const name = nameEl.value.trim();
   msgEl.textContent = name ? هلا : { name };
-  ("اكتب اسمك أول 😅");
+  ("اكتب اسمك أول");
 });
 
 btnToggle.addEventListener("click", () => {
@@ -22,7 +22,7 @@ btnToggle.addEventListener("click", () => {
 
 btnReset.addEventListener("click", () => {
   nameEl.value = "";
-  msgEl.textContent = "تم الريست ✅";
+  msgEl.textContent = "تم الريست ";
   listEl.innerHTML = "";
 });
 
