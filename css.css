@@ -880,3 +880,205 @@ input:focus {
 /* ===========================
    Leen's Page 
    =========================== */
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+/* ===========================
+     Ranem 
+   =========================== */
+#add-recipe-page {
+  background: #F6EBDD;
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  color: #2B1E16;
+}
+
+/* Content */
+#add-recipe-content {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 24px;
+}
+
+/* Title */
+#add-recipe-title {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  color: #6B4F3B;
+  margin-bottom: 24px;
+}
+
+/* Card Form */
+#add-recipe-form {
+  background: #FFF8EF;
+  border: 1px solid #E2D2BF;
+  border-radius: 18px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  box-shadow: 0 8px 24px rgba(107, 79, 59, 0.08);
+}
+
+/* Labels */
+#add-recipe-form label {
+  font-weight: 500;
+  color: #6B4F3B;
+}
+
+/* Inputs */
+#add-recipe-form input,
+#add-recipe-form select,
+#add-recipe-form textarea {
+  background: #FFF8EF;
+  border: 1px solid #E2D2BF;
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-size: 14px;
+}
+
+#add-recipe-form textarea {
+  resize: vertical;
+}
+
+#add-recipe-form input:focus,
+#add-recipe-form select:focus,
+#add-recipe-form textarea:focus {
+  outline: none;
+  border-color: #D9A441;
+  box-shadow: 0 0 0 2px rgba(217, 164, 65, 0.2);
+}
+
+/* Ingredient & Step fields */
+#add-recipe-ingredients-container input,
+#add-recipe-steps-container input {
+  margin-bottom: 8px;
+}
+
+/* Buttons */
+.add-recipe-btn-primary {
+  background: #D9A441;
+  color: #2B1E16;
+  border: none;
+  border-radius: 14px;
+  height: 46px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.add-recipe-btn-primary:hover {
+  background: #B8832C;
+}
+
+.add-recipe-btn-secondary {
+  background: #EFE1CF;
+  color: #6B4F3B;
+  border: 1px solid #E2D2BF;
+  border-radius: 14px;
+  height: 42px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+  padding: 0 16px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-recipe-btn-secondary:hover {
+  background: #E6D3BC;
+}
+
+#cancel-add-recipe {
+  text-decoration: none;         
+  display: flex;                 
+  align-items: center;
+  justify-content: center;
+  height: 46px;
+}
+
+#add-recipe-submit-recipe {
+  height: 50px;          
+  padding: 0 28px;      
+  font-size: 17px;       
+  font-weight: 600;     
+  display: flex;         
+  align-items: center;
+  justify-content: center;
+}
+
+#add-recipe-submit-recipe,
+#cancel-add-recipe {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+}
+
+/* Add buttons spacing */
+#add-ingredient-btn,
+#add-step-btn {
+  align-self: flex-start;
+  margin-bottom: 8px;
+}
+
+/* Actions */
+#add-recipe-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+  justify-content: flex-end;
+}
+
+/* Ingredient & Step rows */
+.ingredient-row,
+.step-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.ingredient-number,
+.step-number {
+  font-weight: 600;
+  color: #6B4F3B;
+  min-width: 20px;
+}
+
+/* Ingredient inputs */
+.ingredient-name {
+  flex: 2;
+}
+
+.ingredient-qty {
+  flex: 1;
+}
+
+/* Step input */
+.step-input {
+  flex: 1;
+}
