@@ -13,6 +13,42 @@ if (loginForm) {
   });
 }
 
+const ingredientsContainer = document.getElementById("add-recipe-ingredients-container");
+const stepsContainer = document.getElementById("add-recipe-steps-container");
+const addIngredientBtn = document.getElementById("add-ingredient-btn");
+const addStepBtn = document.getElementById("add-step-btn");
+
+/* Add Ingredient */
+addIngredientBtn.addEventListener("click", () => {
+  const count = ingredientsContainer.children.length + 1;
+
+  const row = document.createElement("div");
+  row.className = "ingredient-row";
+
+  row.innerHTML = `
+    <span class="ingredient-number">${count}.</span>
+    <input type="text" class="ingredient-name" placeholder="Ingredient name" required />
+    <input type="text" class="ingredient-qty" placeholder="Quantity" required />
+  `;
+
+  ingredientsContainer.appendChild(row);
+});
+
+/* Add Step */
+addStepBtn.addEventListener("click", () => {
+  const count = stepsContainer.children.length + 1;
+
+  const row = document.createElement("div");
+  row.className = "step-row";
+
+  row.innerHTML = `
+    <span class="step-number">${count}.</span>
+    <input type="text" class="step-input" placeholder="Step description" required />
+  `;
+
+  stepsContainer.appendChild(row);
+});
+
 
 
 
