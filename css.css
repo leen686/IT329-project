@@ -451,6 +451,7 @@ input:focus {
 .userContainer {
   max-width: 1100px;
   margin: 0 auto;
+  margin-top: 24px;
   padding: 24px;
   font-family: Arial, sans-serif;
   color: #2b1e16;
