@@ -13,6 +13,29 @@ if (loginForm) {
   });
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Signup: preview image + redirect to user page (default avatar if none)
 var signupForm = document.getElementById("signupForm");
 var profileImage = document.getElementById("profileImage");
