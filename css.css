@@ -621,17 +621,6 @@ input:focus {
   transform: translateY(-1px);
 }
 
-/* Link */
-.userLink {
-  color: #6b4f3b;
-  font-weight: 700;
-  text-decoration: none;
-}
-.userLink:hover {
-  color: #4b3326;
-  text-decoration: underline;
-}
-
 /* Card Section */
 .userCard {
   background: #fff8ef;
