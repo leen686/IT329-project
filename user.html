@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Page • Ramadan Light</title>
+    <link rel="stylesheet" href="Leen.css" />
+  </head>
+
+  <body>
+    <div class="navbar">
+      <div class="wrap nav-row">
+        <a class="brand" href="index.html">
+          <img
+            src="images/log.png"
+            alt="Ramadan Light logo"
+            class="brand-logo"
+          />
+          <div class="brand-text">
+            <div class="brand-name">Ramadan Light</div>
+            <div class="brand-sub">HEALTHY RECIPES</div>
+          </div>
+        </a>
+
+        <div class="nav-links">
+          <a class="link" href="index.html">Home</a>
+          <a class="btn btn-primary" href="signup.html">Sign up</a>
+        </div>
+      </div>
+    </div>
+    <main class="userContainer userBackground">
+      <!-- Top Bar -->
+      <section class="userTopBar">
+        <div class="userTopLeft">
+          <img class="userAvatar" src="images\avatar.png" alt="Profile image" />
+          <div>
+            <p class="userTextSecondary userMarginBottomSmall">
+              Welcome back 👋
+            </p>
+            <h1 class="userTitleMain userMarginBottomSmall">Sarah</h1>
+          </div>
+        </div>
+
+        <div class="userTopRight">
+          <div class="userStatsBox">
+            <span class="userStatsLabel">Recipes</span>
+            <span class="userStatsValue">5</span>
+          </div>
+
+          <div class="userStatsBox">
+            <span class="userStatsLabel">Likes</span>
+            <span class="userStatsValue">132</span>
+          </div>
+
+          <a class="userButtonPrimary" href="Leen.html">My recipes</a>
+        </div>
+      </section>
+
+      <!-- Profile -->
+      <section class="userCard userMarginTop">
+        <div class="userSectionHeader">
+          <h2 class="userTitleSection">Profile</h2>
+          <a class="userLink" href="index.html">Sign out</a>
+        </div>
+
+        <div class="userInfoPills">
+          <div class="userInfoPill">
+            <span class="userTextSecondary userTextSmall">First name</span>
+            <span class="userTextStrong">Sarah</span>
+          </div>
+
+          <div class="userInfoPill">
+            <span class="userTextSecondary userTextSmall">Last name</span>
+            <span class="userTextStrong">Almutairi</span>
+          </div>
+
+          <div class="userInfoPill userInfoPillWide">
+            <span class="userTextSecondary userTextSmall">Email</span>
+            <span class="userTextStrong">sarah1214@gmail.com</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Explore Recipes -->
+      <section class="userCard userMarginTop">
+        <div class="userSectionHeader">
+          <div>
+            <h2 class="userTitleSection">Explore recipes</h2>
+            <p class="userTextSecondary userTextSmall userMarginTopSmall">
+              Filter by category to find something for today.
+            </p>
+          </div>
+
+          <form class="userFilterBar">
+            <select class="userSelectField" name="category">
+              <option value="all">All Categories</option>
+              <option value="suhoor">Suhoor</option>
+              <option value="iftar">Iftar</option>
+              <option value="snacks">Snacks</option>
+            </select>
+            <button class="userButtonPrimary" type="submit">Filter</button>
+          </form>
+        </div>
+
+        <div class="userRecipeList">
+          <!-- 1 -->
+          <article class="userRecipeRow">
+            <a href="Leen.html">
+              <img
+                class="userRecipeImage"
+                src="images\Veggie & Hummus Sandwich.jpg"
+                alt="Veggie & Hummus Sandwich.jpg"
+              />
+            </a>
+
+            <div class="userRecipeMain">
+              <a class="userRecipeTitle" href="Leen.html"
+                >Veggie & Hummus Sandwich</a
+              >
+
+              <div class="userRecipeMeta">
+                <span class="userCategoryTag userTagIftar">Iftar</span>
+                <span class="userMetaDot"></span>
+
+                <span class="userCreatorMini">
+                  <img
+                    class="userCreatorAvatar"
+                    src="images\Abdullah Ali.png"
+                    alt="Creator photo"
+                  />
+                  <span>Abdullah Ali</span>
+                </span>
+              </div>
+            </div>
+
+            <div class="userLikesBox">
+              <span class="userLikesLabel">Likes</span>
+              <span class="userLikesValue">189</span>
+            </div>
+          </article>
+
+          <!-- 2 -->
+          <article class="userRecipeRow">
+            <a href="Leen.html">
+              <img
+                class="userRecipeImage"
+                src="images\Energy Balls.webp"
+                alt="Energy Balls"
+              />
+            </a>
+
+            <div class="userRecipeMain">
+              <a class="userRecipeTitle" href="Leen.html">Energy Balls </a>
+
+              <div class="userRecipeMeta">
+                <span class="userCategoryTag userTagSnacks">Snacks</span>
+                <span class="userMetaDot"></span>
+
+                <span class="userCreatorMini">
+                  <img
+                    class="userCreatorAvatar"
+                    src="images\Sami Ahmed.png"
+                    alt="Creator photo"
+                  />
+                  <span>Sami Ahmed</span>
+                </span>
+              </div>
+            </div>
+
+            <div class="userLikesBox">
+              <span class="userLikesLabel">Likes</span>
+              <span class="userLikesValue">198</span>
+            </div>
+          </article>
+
+          <!-- 3 -->
+          <article class="userRecipeRow">
+            <a href="Leen.html">
+              <img
+                class="userRecipeImage"
+                src="images\Creamy Lemon Pasta with Shrimp.webp"
+                alt="Creamy Lemon Pasta with Shrimp"
+              />
+            </a>
+
+            <div class="userRecipeMain">
+              <a class="userRecipeTitle" href="view-recipe.html"
+                >Creamy Lemon Pasta with Shrimp</a
+              >
+
+              <div class="userRecipeMeta">
+                <span class="userCategoryTag userTagSuhoor">Suhoor</span>
+                <span class="userMetaDot"></span>
+
+                <span class="userCreatorMini">
+                  <img
+                    class="userCreatorAvatar"
+                    src="images\Lina Osama.png"
+                    alt="Creator photo"
+                  />
+                  <span>Lina Osama</span>
+                </span>
+              </div>
+            </div>
+
+            <div class="userLikesBox">
+              <span class="userLikesLabel">Likes</span>
+              <span class="userLikesValue">313</span>
+            </div>
+          </article>
+
+          <!-- 4 -->
+          <article class="userRecipeRow">
+            <a href="Leen.html">
+              <img
+                class="userRecipeImage"
+                src="images\wild rice mushroom soup.jpg"
+                alt="wild rice mushroom soup"
+              />
+            </a>
+
+            <div class="userRecipeMain">
+              <a class="userRecipeTitle" href="view-recipe.html"
+                >Wild Rice Mushroom Soup</a
+              >
+
+              <div class="userRecipeMeta">
+                <span class="userCategoryTag userTagIftar">Iftar</span>
+                <span class="userMetaDot"></span>
+
+                <span class="userCreatorMini">
+                  <img
+                    class="userCreatorAvatar"
+                    src="images\Razan Faisal.png"
+                    alt="Creator photo"
+                  />
+                  <span>Razan Faisal</span>
+                </span>
+              </div>
+            </div>
+
+            <div class="userLikesBox">
+              <span class="userLikesLabel">Likes</span>
+              <span class="userLikesValue">141</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- My Favourites (3) -->
+      <section class="userCard userMarginTop">
+        <div class="userSectionHeader">
+          <div>
+            <h2 class="userTitleSection">My favourites</h2>
+            <p class="userTextSecondary userTextSmall userMarginTopSmall">
+              Recipes you saved for later.
+            </p>
+          </div>
+        </div>
+
+        <div class="userFavoritesGrid">
+          <article class="userFavoriteCard">
+            <a href="Leen.html">
+              <img
+                class="userFavoriteImage"
+                src="images\wild rice mushroom soup.jpg"
+                alt="Wild Rice Mushroom Soup"
+              />
+            </a>
+            <div class="userFavoriteMain">
+              <a class="userRecipeTitle" href="view-recipe.html"
+                >Wild Rice Mushroom Soup</a
+              >
+              <span class="userTextSecondary userTextSmall">Saved recipe</span>
+            </div>
+            <a class="userButtonRemove" href="#">Remove</a>
+          </article>
+
+          <article class="userFavoriteCard">
+            <a href="Leen.html">
+              <img
+                class="userFavoriteImage"
+                src="images\Energy Balls.webp"
+                alt="Energy Balls"
+              />
+            </a>
+            <div class="userFavoriteMain">
+              <a class="userRecipeTitle" href="view-recipe.html"
+                >Energy Balls</a
+              >
+              <span class="userTextSecondary userTextSmall">Saved recipe</span>
+            </div>
+            <a class="userButtonRemove" href="#">Remove</a>
+          </article>
+
+          <article class="userFavoriteCard">
+            <a href="Leen.html">
+              <img
+                class="userFavoriteImage"
+                src="images\Veggie & Hummus Sandwich.jpg"
+                alt="Veggie & Hummus Sandwich"
+              />
+            </a>
+            <div class="userFavoriteMain">
+              <a class="userRecipeTitle" href="view-recipe.html"
+                >Veggie & Hummus Sandwich</a
+              >
+              <span class="userTextSecondary userTextSmall">Saved recipe</span>
+            </div>
+            <a class="userButtonRemove" href="#">Remove</a>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <div class="footer">
+      <div class="wrap footer-row">
+        <div class="footer-mark">☾</div>
+        <div>© 2026 Ramadan Light — Nourishing bodies and souls.</div>
+      </div>
+    </div>
+  </body>
+</html>
