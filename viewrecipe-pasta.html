@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ramadan Light | View Recipe</title>
+  <link rel="stylesheet" href="viewrecipe.css" />
+</head>
+<body class="viewrecipe-page">
+
+  <!-- Simple navbar  -->
+  <div class="navbar">
+    <div class="wrap nav-row">
+      <a class="brand" href="index.html">
+        <img src="images/log.png" alt="Ramadan Light logo" class="brand-logo">
+        <div>
+          <div class="brand-name">Ramadan Light</div>
+          <div class="brand-sub">HEALTHY RECIPES</div>
+        </div>
+      </a>
+
+      <div class="nav-links">
+        <a class="link" href="index.html">Home</a>
+        <a class="link" href="user.html">User page</a>
+        <a class="link" href="myRecipes.html">My recipes</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-bg">
+    <div class="wrap">
+
+      <div class="card">
+
+        <!-- 3 buttons on top  -->
+        <div class="top-actions">
+          <a class="btn btn-outline" href="viewrecipe.html">Favourite ♥</a>
+          <a class="btn btn-outline" href="viewrecipe.html">Like 👍</a>
+          <a class="btn btn-outline btn-danger" href="viewrecipe.html">Report ⚑</a>
+        </div>
+
+        <!-- Recipe name + photo -->
+        <h1 class="title">Creamy Lemon Pasta with Shrimp</h1>
+        <img class="recipe-photo" src="images/Creamy Lemon Pasta with Shrimp.webp" alt="Recipe photo">
+
+        <!-- Recipe creator name + photo -->
+        <div class="creator">
+          <span class="label">Recipe Creator:</span>
+          <div class="creator-box">
+            <img class="avatar" src="images/default-avatar.png" alt="Creator photo">
+            <span class="creator-name">Sara Ahmed</span>
+          </div>
+        </div>
+
+        <!-- Category + description -->
+        <div class="box">
+          <h2 class="section-title">Details</h2>
+          <p><b>Category:</b> Suhoor</p>
+          <p class="muted">
+            A refreshing lemon shrimp pasta that’s hearty enough for suhoor yet bright and healthy with olive oil, fresh lemon, and shrimp protein.
+          </p>
+        </div>
+
+        <!-- Ingredients list -->
+        <div class="box">
+          <h2 class="section-title">Ingredients</h2>
+          <ul class="list">
+            <li>Spaghetti — 8 oz</li>
+            <li>Shrimp, peeled &amp; deveined — 400–500 g</li>
+            <li>Olive oil — 2 tbsp</li>
+            <li>Garlic cloves, minced — 3 cloves</li>
+            <li>Lemon zest &amp; juice — 1 lemon</li>
+            <li>Cooking cream — ¼ cup</li>
+            <li>Salt &amp; black pepper — To taste</li>
+            <li>Fresh parsley or herbs — For garnish</li>
+          </ul>
+        </div>
+
+        <!-- Instructions list -->
+        <div class="box">
+          <h2 class="section-title">Instructions</h2>
+          <ol class="list">
+            <li>Cook pasta until al dente; drain.</li>
+            <li>Heat olive oil and sauté garlic briefly.</li>
+            <li>Add shrimp, salt, and pepper; cook until pink.</li>
+            <li>Stir in cream, lemon juice, and zest.</li>
+            <li>Add pasta, toss gently, garnish, and serve.</li>
+          </ol>
+        </div>
+
+        <!-- Video (optional) -->
+        
+        <div class="box" id="videoSection">
+          <h2 class="section-title">Video</h2>
+          <p class="muted">Video:</p>
+          <a class="link" href="videos/Lemon Shrimp Pasta.mp4" target="_blank" rel="noopener">
+            videos/Lemon Shrimp Pasta.mp4
+          </a>
+        </div>
+
+        <!-- Comments section + add comment form -->
+        <div class="box">
+          <h2 class="section-title">Comments</h2>
+
+          <form class="comment-form" action="viewrecipe.html" method="get">
+            <input class="input" type="text" placeholder="Write a comment..." required>
+            <button class="btn btn-primary" type="submit">Add Comment</button>
+          </form>
+
+          <!-- Newest to oldest -->
+          <div class="comment">
+            <img class="avatar" src="images/default-avatar.png" alt="User photo">
+            <div>
+              <b>Huda</b>
+              <p class="muted">Loved the lemon flavor — so fresh and light.</p>
+            </div>
+          </div>
+
+          <div class="comment">
+            <img class="avatar" src="images/default-avatar.png" alt="User photo">
+            <div>
+              <b>Reem</b>
+              <p class="muted">The shrimp with the creamy sauce is perfect together.</p>
+            </div>
+          </div>
+
+          <div class="comment">
+            <img class="avatar" src="images/default-avatar.png" alt="User photo">
+            <div>
+              <b>Omar</b>
+              <p class="muted">Great suhoor option — filling but not heavy.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
