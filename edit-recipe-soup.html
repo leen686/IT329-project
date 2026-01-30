@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ramadan Light | Edit recipe</title>
+  <link rel="stylesheet" href="css.css">
+</head>
+
+<body id="edit-recipe-page">
+
+<div class="navbar">
+  <div class="wrap nav-row">
+    <a class="brand" href="index.html">
+      <img src="images/log.png" alt="Ramadan Light logo" class="brand-logo">
+      <div class="brand-text">
+        <div class="brand-name">Ramadan Light</div>
+        <div class="brand-sub">HEALTHY RECIPES</div>
+      </div>
+    </a>
+
+    <div class="nav-links">
+      <a class="link" href="index.html">Home</a>
+      <a class="btn btn-primary" href="index.html">Sign out</a>
+    </div>
+  </div>
+</div>
+
+<main id="edit-recipe-content">
+
+<h1 id="edit-recipe-title">Edit Recipe</h1>
+
+<form id="edit-recipe-form" action="my-recipes.html">
+
+<label for="edit-recipe-name">Recipe name</label>
+<input type="text" id="edit-recipe-name" value="Wild Rice Mushroom Soup" required>
+
+<label for="edit-recipe-category">Category</label>
+<select id="edit-recipe-category" required>
+  <option>Suhoor</option>
+  <option selected>Iftar</option>
+  <option>Snacks</option>
+</select>
+
+<label for="edit-recipe-description">Description</label>
+<textarea id="edit-recipe-description" rows="3" required>
+A cozy, satisfying wild rice mushroom soup — rich in fiber and earthy flavor from mushrooms, hearty enough for iftar to refill energy after fasting.
+</textarea>
+
+<label>Photo</label>
+<div id="edit-recipe-photo-row">
+  <input type="file" id="edit-recipe-photo" accept="image/*">
+  <div id="edit-recipe-current-photo">
+    <span>Current Photo:</span>
+    <img src="images/wild rice mushroom soup.jpg" alt="Wild Rice Mushroom Soup" id="edit-recipe-photo-preview">
+  </div>
+</div>
+
+<label>Ingredients</label>
+<div id="edit-recipe-ingredients-container">
+  <div class="ingredient-row"><span class="ingredient-number">1.</span><input class="ingredient-name" value="Olive oil" required><input class="ingredient-qty" value="1 tbsp" required></div>
+  <div class="ingredient-row"><span class="ingredient-number">2.</span><input class="ingredient-name" value="Onion, chopped" required><input class="ingredient-qty" value="1" required></div>
+  <div class="ingredient-row"><span class="ingredient-number">3.</span><input class="ingredient-name" value="Mushrooms, sliced" required><input class="ingredient-qty" value="250 g" required></div>
+  <div class="ingredient-row"><span class="ingredient-number">4.</span><input class="ingredient-name" value="Wild rice" required><input class="ingredient-qty" value="1 cup" required></div>
+  <div class="ingredient-row"><span class="ingredient-number">5.</span><input class="ingredient-name" value="Vegetable broth" required><input class="ingredient-qty" value="5–6 cups" required></div>
+  <div class="ingredient-row"><span class="ingredient-number">6.</span><input class="ingredient-name" value="Dried thyme" required><input class="ingredient-qty" value="½ tsp" required></div>
+  <div class="ingredient-row"><span class="ingredient-number">7.</span><input class="ingredient-name" value="Salt & black pepper" required><input class="ingredient-qty" value="To taste" required></div>
+  <div class="ingredient-row"><span class="ingredient-number">8.</span><input class="ingredient-name" value="Milk or cooking cream (optional)" required><input class="ingredient-qty" value="¼ cup" required></div>
+</div>
+
+<label>Instructions</label>
+<div id="edit-recipe-steps-container">
+  <div class="step-row"><span class="step-number">1.</span><input class="step-input" value="Heat olive oil and sauté onion until soft." required></div>
+  <div class="step-row"><span class="step-number">2.</span><input class="step-input" value="Add mushrooms and cook until tender." required></div>
+  <div class="step-row"><span class="step-number">3.</span><input class="step-input" value="Stir in rice, broth, thyme, salt, and pepper." required></div>
+  <div class="step-row"><span class="step-number">4.</span><input class="step-input" value="Simmer 35–40 minutes until rice is cooked." required></div>
+  <div class="step-row"><span class="step-number">5.</span><input class="step-input" value="Add milk or cream if desired, stir, and serve warm." required></div>
+</div>
+
+<label>Video or URL (optional)</label>
+<div id="edit-recipe-video-row">
+  <input type="file" id="edit-recipe-video-file" accept="video/*">
+  <div id="edit-recipe-current-video">
+    <span>Current Video:</span>
+    No Video Uploaded
+  </div>
+</div>
+
+<label for="edit-recipe-video-url">Video URL</label>
+<input type="url" id="edit-recipe-video-url" value="https://youtu.be/Ma8b8pcpGrc?si=b92N_1OPdxDLZVPk">
+
+<div id="edit-recipe-actions">
+  <button type="submit" class="edit-recipe-btn-primary" id="edit-recipe-save">Save changes</button>
+  <a href="my-recipes.html" class="edit-recipe-btn-secondary" id="edit-recipe-cancel">Cancel</a>
+</div>
+
+</form>
+</main>
+
+<div class="footer">
+  <div class="wrap footer-row">
+    <div class="footer-mark">☾</div>
+    <div>© 2026 Ramadan Light — Nourishing bodies and souls.</div>
+  </div>
+</div>
+
+</body>
+</html>

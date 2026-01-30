@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ramadan Light | Edit recipe</title>
+  <link rel="stylesheet" href="css.css">
+</head>
+
+<body id="edit-recipe-page">
+
+<div class="navbar">
+  <div class="wrap nav-row">
+    <a class="brand" href="index.html">
+      <img src="images/log.png" alt="Ramadan Light logo" class="brand-logo">
+      <div class="brand-text">
+        <div class="brand-name">Ramadan Light</div>
+        <div class="brand-sub">HEALTHY RECIPES</div>
+      </div>
+    </a>
+
+    <div class="nav-links">
+      <a class="link" href="index.html">Home</a>
+      <a class="btn btn-primary" href="index.html">Sign out</a>
+    </div>
+  </div>
+</div>
+
+<main id="edit-recipe-content">
+
+<h1 id="edit-recipe-title">Edit Recipe</h1>
+
+<form id="edit-recipe-form" action="my-recipes.html">
+
+<label for="edit-recipe-name">Recipe name</label>
+<input type="text" id="edit-recipe-name" value="Energy Balls" required>
+
+<label for="edit-recipe-category">Category</label>
+<select id="edit-recipe-category" required>
+  <option>Suhoor</option>
+  <option>Iftar</option>
+  <option selected>Snacks</option>
+</select>
+
+<label for="edit-recipe-description">Description</label>
+<textarea id="edit-recipe-description" rows="3" required>
+Simple no-bake energy balls made with oats, nut butter, and honey — great for a healthy snack or to boost energy after suhoor. 
+</textarea>
+
+<label>Photo</label>
+<div id="edit-recipe-photo-row">
+  <input type="file" id="edit-recipe-photo" accept="image/*">
+  <div id="edit-recipe-current-photo">
+    <span>Current Photo:</span>
+    <img src="images/Energy Balls.webp" alt="Energy Balls" id="edit-recipe-photo-preview">
+  </div>
+</div>
+
+<label>Ingredients</label>
+<div id="edit-recipe-ingredients-container">
+  <div class="ingredient-row"><span class="ingredient-number">1.</span><input class="ingredient-name" value="Rolled oats" required><input class="ingredient-qty" value="1½ cups" required></div>
+  <div class="ingredient-row"><span class="ingredient-number">2.</span><input class="ingredient-name" value="Peanut butter" required><input class="ingredient-qty" value="¾ cup" required></div>
+  <div class="ingredient-row"><span class="ingredient-number">3.</span><input class="ingredient-name" value="Honey or date syrup" required><input class="ingredient-qty" value="¼ cup" required></div>
+  <div class="ingredient-row"><span class="ingredient-number">4.</span><input class="ingredient-name" value="Ground flaxseed" required><input class="ingredient-qty" value="¼ cup" required></div>
+  <div class="ingredient-row"><span class="ingredient-number">5.</span><input class="ingredient-name" value="Shredded coconut" required><input class="ingredient-qty" value="¼ cup" required></div>
+  <div class="ingredient-row"><span class="ingredient-number">6.</span><input class="ingredient-name" value="Vanilla extract" required><input class="ingredient-qty" value="1 tsp" required></div>
+</div>
+
+<label>Instructions</label>
+<div id="edit-recipe-steps-container">
+  <div class="step-row"><span class="step-number">1.</span><input class="step-input" value="Mix oats, peanut butter, honey, flaxseed, and vanilla in a bowl." required></div>
+  <div class="step-row"><span class="step-number">2.</span><input class="step-input" value="Scoop small portions and roll into balls." required></div>
+  <div class="step-row"><span class="step-number">3.</span><input class="step-input" value="Roll each ball in shredded coconut." required></div>
+  <div class="step-row"><span class="step-number">4.</span><input class="step-input" value="Chill in the fridge for 1 hour before serving." required></div>
+</div>
+
+<label>Video or URL (optional)</label>
+<div id="edit-recipe-video-row">
+  <input type="file" id="edit-recipe-video-file" accept="video/*">
+  <div id="edit-recipe-current-video">
+    <span>Current Video:</span>
+    No Video Uploaded
+  </div>
+</div>
+
+<label for="edit-recipe-video-url">Video URL</label>
+<input type="url" id="edit-recipe-video-url" value="https://youtu.be/DVVaWdE3yoU?si=H4r9xnPr7YSIEWa2">
+
+<div id="edit-recipe-actions">
+  <button type="submit" class="edit-recipe-btn-primary" id="edit-recipe-save">Save changes</button>
+  <a href="my-recipes.html" class="edit-recipe-btn-secondary" id="edit-recipe-cancel">Cancel</a>
+</div>
+
+</form>
+</main>
+
+<div class="footer">
+  <div class="wrap footer-row">
+    <div class="footer-mark">☾</div>
+    <div>© 2026 Ramadan Light — Nourishing bodies and souls.</div>
+  </div>
+</div>
+
+</body>
+</html>

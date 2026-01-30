@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ramadan Light | Edit recipe</title>
+  <link rel="stylesheet" href="css.css">
+</head>
+
+<body id="edit-recipe-page">
+
+<div class="navbar">
+  <div class="wrap nav-row">
+    <a class="brand" href="index.html">
+      <img src="images/log.png" alt="Ramadan Light logo" class="brand-logo">
+      <div class="brand-text">
+        <div class="brand-name">Ramadan Light</div>
+        <div class="brand-sub">HEALTHY RECIPES</div>
+      </div>
+    </a>
+
+    <div class="nav-links">
+      <a class="link" href="index.html">Home</a>
+      <a class="btn btn-primary" href="index.html">Sign out</a>
+    </div>
+  </div>
+</div>
+
+<main id="edit-recipe-content">
+
+<h1 id="edit-recipe-title">Edit Recipe</h1>
+
+<form id="edit-recipe-form" action="my-recipes.html">
+
+<label for="edit-recipe-name">Recipe name</label>
+<input type="text" id="edit-recipe-name" value="Creamy Lemon Pasta with Shrimp" required>
+
+<label for="edit-recipe-category">Category</label>
+<select id="edit-recipe-category" required>
+  <option selected>Suhoor</option>
+  <option>Iftar</option>
+  <option>Snacks</option>
+</select>
+
+<label for="edit-recipe-description">Description</label>
+<textarea id="edit-recipe-description" rows="3" required>
+A refreshing lemon shrimp pasta that’s hearty enough for suhoor yet bright and healthy with olive oil, fresh lemon, and shrimp protein.
+</textarea>
+
+<label>Photo</label>
+<div id="edit-recipe-photo-row">
+  <input type="file" id="edit-recipe-photo" accept="image/*">
+  <div id="edit-recipe-current-photo">
+    <span>Current Photo:</span>
+    <img src="images/Creamy Lemon Pasta with Shrimp.webp" alt="Creamy Lemon Pasta with Shrimp" id="edit-recipe-photo-preview">
+  </div>
+</div>
+
+<label>Ingredients</label>
+<div id="edit-recipe-ingredients-container">
+  <div class="ingredient-row"><span class="ingredient-number">1.</span><input class="ingredient-name" value="Spaghetti" required><input class="ingredient-qty" value="8 oz" required></div>
+  <div class="ingredient-row"><span class="ingredient-number">2.</span><input class="ingredient-name" value="Shrimp, peeled & deveined" required><input class="ingredient-qty" value="400–500 g" required></div>
+  <div class="ingredient-row"><span class="ingredient-number">3.</span><input class="ingredient-name" value="Olive oil" required><input class="ingredient-qty" value="2 tbsp" required></div>
+  <div class="ingredient-row"><span class="ingredient-number">4.</span><input class="ingredient-name" value="Garlic cloves, minced" required><input class="ingredient-qty" value="3 cloves" required></div>
+  <div class="ingredient-row"><span class="ingredient-number">5.</span><input class="ingredient-name" value="Lemon zest & juice" required><input class="ingredient-qty" value="1 lemon" required></div>
+  <div class="ingredient-row"><span class="ingredient-number">6.</span><input class="ingredient-name" value="Cooking cream" required><input class="ingredient-qty" value="¼ cup" required></div>
+  <div class="ingredient-row"><span class="ingredient-number">7.</span><input class="ingredient-name" value="Salt & black pepper" required><input class="ingredient-qty" value="To taste" required></div>
+  <div class="ingredient-row"><span class="ingredient-number">8.</span><input class="ingredient-name" value="Fresh parsley or herbs" required><input class="ingredient-qty" value="For garnish" required></div>
+</div>
+
+<label>Instructions</label>
+<div id="edit-recipe-steps-container">
+  <div class="step-row"><span class="step-number">1.</span><input class="step-input" value="Cook pasta until al dente; drain." required></div>
+  <div class="step-row"><span class="step-number">2.</span><input class="step-input" value="Heat olive oil and sauté garlic briefly." required></div>
+  <div class="step-row"><span class="step-number">3.</span><input class="step-input" value="Add shrimp, salt, and pepper; cook until pink." required></div>
+  <div class="step-row"><span class="step-number">4.</span><input class="step-input" value="Stir in cream, lemon juice, and zest." required></div>
+  <div class="step-row"><span class="step-number">5.</span><input class="step-input" value="Add pasta, toss gently, garnish, and serve." required></div>
+</div>
+
+<label>Video or URL (optional)</label>
+<div id="edit-recipe-video-row">
+  <input type="file" id="edit-recipe-video-file" accept="video/*">
+  <div id="edit-recipe-current-video">
+    <span>Current Video:</span>
+    <video id="edit-recipe-video-preview" controls width="160">
+      <source src="videos/Lemon Shrimp Pasta.mp4" type="video/mp4">
+    </video>
+  </div>
+</div>
+
+<label for="edit-recipe-video-url">Video URL</label>
+<input type="url" id="edit-recipe-video-url" placeholder="https://youtube.com/..." >
+
+<div id="edit-recipe-actions">
+  <button type="submit" class="edit-recipe-btn-primary" id="edit-recipe-save">Save changes</button>
+  <a href="my-recipes.html" class="edit-recipe-btn-secondary" id="edit-recipe-cancel">Cancel</a>
+</div>
+
+</form>
+</main>
+
+<div class="footer">
+  <div class="wrap footer-row">
+    <div class="footer-mark">☾</div>
+    <div>© 2026 Ramadan Light — Nourishing bodies and souls.</div>
+  </div>
+</div>
+
+</body>
+</html>
