@@ -1,3 +1,6 @@
+
+
+
 /* ===========================
   Latifah 
   =========================== */
@@ -1263,3 +1266,336 @@ input:focus {
   border-radius: 10px;
   background: #FFF;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =================================================MY RECIPES PAGE======================================================= */
+
+
+/* ===== Font ===== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* ===== Base ===== */
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand img {
+  width: 50px;
+  height: auto;
+  object-fit: contain;
+}
+
+body{
+  margin:0;
+  font-family:Poppins, Arial, sans-serif;
+  font-size:16px;
+  color:#2B1E16;
+  background:#F6EBDD;
+}
+a{
+  color:#D9A441;
+  text-decoration:none;
+}
+a:hover{
+  color:#B8832C;
+  text-decoration:underline;
+}
+h1{
+  font-size:32px;
+  font-weight:700;
+  color:#6B4F3B;
+  margin-bottom:8px;
+}
+/* ===== Navbar ===== */
+.mr-navbar{
+  background:#6B4F3B;
+  color:#FFF8EF;
+  padding:14px 24px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.mr-brand-link{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:#FFF8EF;
+}
+.mr-brand-link:hover{
+  color:#D9A441;
+  text-decoration:none;
+}
+.mr-logo{
+  width:34px;
+  height:34px;
+  border-radius:10px;
+  object-fit:cover;
+}
+.mr-nav-link{
+  color:#FFF8EF;
+  margin-left:16px;
+}
+.mr-nav-link:hover{
+  color:#D9A441;
+}
+/* ===== Layout ===== */
+.mr-container{
+  max-width:1100px;
+  margin:auto;
+  padding:24px;
+}
+.mr-actions{
+  margin:16px 0 24px;
+}
+/* ===== Button ===== */
+.mr-btn-primary{
+  background:#D9A441;
+  color:#2B1E16;
+  padding:12px 18px;
+  border-radius:12px;
+  font-weight:600;
+  display:inline-block;
+}
+.mr-btn-primary:hover{
+  background:#B8832C;
+  text-decoration:none;
+}
+/* ===== Table ===== */
+.mr-table{
+  width:100%;
+  border-collapse:collapse;
+  background:#FFF8EF;
+  border:1px solid #E2D2BF;
+}
+.mr-table th{
+  background:#EFE1CF;
+  color:#6B4F3B;
+  font-weight:700;
+  padding:12px;
+  border-bottom:1px solid #E2D2BF;
+  text-align:left;
+}
+.mr-table td{
+  padding:12px;
+  border-bottom:1px solid #E2D2BF;
+  vertical-align:top;
+}
+.mr-table tr:hover{
+  background:#F6EBDD;
+}
+/* ===== Recipe cell ===== */
+.mr-recipe-cell{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.mr-recipe-img{
+  width:64px;
+  height:64px;
+  border-radius:12px;
+  object-fit:cover;
+  border:1px solid #E2D2BF;
+}
+.mr-recipe-name{
+  font-weight:700;
+  color:#6B4F3B;
+}
+.mr-recipe-cat{
+  font-size:14px;
+  color:#7A6A5F;
+}
+/* ===== Lists ===== */
+.mr-list{
+  margin:0;
+  padding-left:18px;
+}
+/* ===== Text helpers ===== */
+.mr-muted{
+  font-size:14px;
+  color:#7A6A5F;
+}
+/* ===== Links ===== */
+.mr-link{
+  color:#D9A441;
+  font-weight:500;
+}
+.mr-link-danger{
+  color:#B3261E;
+  font-weight:500;
+}
+.mr-link-danger:hover{
+  color:#8F1F18;
+}
+/* ===== Footer ===== */
+.mr-footer{
+  text-align:center;
+  padding:24px;
+  color:#7A6A5F;
+}
+
+/* =================================================ADMIN PAGE======================================================= */
+
+/* ===== Font (allowed) ===== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* ===== Admin layout ===== */
+.ad-container{
+  max-width:1100px;
+  margin:auto;
+  padding:24px;
+}
+
+.ad-welcome-text{
+  font-size:20px;
+  font-weight:700;
+  color:#6B4F3B;
+  margin:18px 0 12px;
+}
+
+/* ===== Admin boxes ===== */
+.ad-info-box,
+.ad-reports-box,
+.ad-blocked-box{
+  background:#FFF8EF;
+  border:1px solid #E2D2BF;
+  border-radius:16px;
+  padding:16px;
+  margin-bottom:20px;
+}
+
+/* ===== Titles ===== */
+.ad-section-title{
+  margin:0 0 12px 0;
+  font-size:24px;
+  font-weight:700;
+  color:#6B4F3B;
+}
+
+/* ===== Admin tables ===== */
+.ad-table{
+  width:100%;
+  border-collapse:collapse;
+  background:#FFF8EF;
+  border:1px solid #E2D2BF;
+}
+
+.ad-table th{
+  background:#EFE1CF;
+  color:#6B4F3B;
+  font-weight:700;
+  padding:12px;
+  text-align:left;
+  border-bottom:1px solid #E2D2BF;
+}
+
+.ad-table td{
+  padding:12px;
+  vertical-align:top;
+  border-bottom:1px solid #E2D2BF;
+}
+
+.ad-table tr:hover{
+  background:#F6EBDD;
+}
+
+/* ===== Recipe link ===== */
+.ad-recipe-link{
+  color:#2B1E16;
+  font-weight:600;
+  text-decoration:none;
+}
+.ad-recipe-link:hover{
+  color:#B8832C;
+  text-decoration:underline;
+}
+
+/* ===== Creator (avatar + name) ===== */
+.ad-creator{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.ad-user-img{
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  object-fit:cover;
+  border:1px solid #E2D2BF;
+}
+
+/* =================================================
+   IMPORTANT FIX: stop global CSS from stretching form
+   ================================================= */
+
+.ad-action-form{
+  width:auto;
+  margin:0;
+  font-size:14px;
+}
+
+/* make label clean and aligned */
+.ad-action-form label{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin:6px 0;
+}
+
+/* prevent global input{width:100%} from affecting radios */
+.ad-action-form input[type="radio"]{
+  width:auto;
+  height:auto;
+  margin:0;
+  display:inline-block;
+}
+
+/* keep submit button normal size even if global styles exist */
+.ad-action-form input[type="submit"]{
+  width:auto;
+  display:inline-block;
+  background:#D9A441;
+  color:#2B1E16;
+  border:none;
+  padding:10px 14px;
+  border-radius:12px;
+  font-weight:600;
+  cursor:pointer;
+}
+
+.ad-action-form input[type="submit"]:hover{
+  background:#B8832C;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
