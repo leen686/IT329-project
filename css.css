@@ -908,6 +908,8 @@ input:focus {
 /* ===========================
      Ranem 
    =========================== */
+   
+   /*Add Recipe Page*/
 #add-recipe-page {
   background: #F6EBDD;
   min-height: 100vh;
@@ -1081,4 +1083,183 @@ input:focus {
 /* Step input */
 .step-input {
   flex: 1;
+}
+
+
+
+
+/*Edit Recipe Page*/
+
+#edit-recipe-page {
+  background: #F6EBDD;
+  font-family: 'Poppins', sans-serif;
+  color: #2B1E16;
+}
+
+#edit-recipe-content {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 24px;
+}
+
+#edit-recipe-title {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  color: #6B4F3B;
+  margin-bottom: 24px;
+}
+
+#edit-recipe-form {
+  background: #FFF8EF;
+  border: 1px solid #E2D2BF;
+  border-radius: 18px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  box-shadow: 0 8px 24px rgba(107, 79, 59, 0.08);
+}
+
+#edit-recipe-form label {
+  font-weight: 500;
+  color: #6B4F3B;
+}
+
+#edit-recipe-form input,
+#edit-recipe-form select,
+#edit-recipe-form textarea {
+  background: #FFF8EF;
+  border: 1px solid #E2D2BF;
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-size: 14px;
+}
+
+#edit-recipe-form textarea {
+  resize: vertical;
+}
+
+#edit-recipe-form input:focus,
+#edit-recipe-form select:focus,
+#edit-recipe-form textarea:focus {
+  outline: none;
+  border-color: #D9A441;
+  box-shadow: 0 0 0 2px rgba(217, 164, 65, 0.2);
+}
+
+#edit-recipe-ingredients-container,
+#edit-recipe-steps-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ingredient-row,
+.step-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ingredient-number,
+.step-number {
+  font-weight: 600;
+  color: #6B4F3B;
+  min-width: 22px;
+}
+
+/* Ingredient inputs */
+.ingredient-name {
+  flex: 2;
+}
+
+.ingredient-qty {
+  flex: 1;
+}
+
+/* Step input */
+.step-input {
+  flex: 1;
+}
+
+.edit-recipe-btn-secondary {
+  background: #EFE1CF;
+  color: #6B4F3B;
+  border: 1px solid #E2D2BF;
+  border-radius: 14px;
+  height: 44px;
+  padding: 0 18px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  width: fit-content;
+}
+
+.edit-recipe-btn-secondary:hover {
+  background: #E6D3BC;
+}
+
+.edit-recipe-btn-primary {
+  background: #D9A441;
+  color: #2B1E16;
+  border: none;
+  border-radius: 14px;
+  height: 50px;
+  padding: 0 28px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.edit-recipe-btn-primary:hover {
+  background: #B8832C;
+}
+
+#edit-recipe-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 16px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+}
+
+#edit-recipe-save {
+	font-size: 16px;
+}
+
+#edit-recipe-photo-row,
+#edit-recipe-video-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+#edit-recipe-current-photo,
+#edit-recipe-current-video {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 14px;
+  color: #6B4F3B;
+}
+
+#edit-recipe-photo-preview {
+  width: 120px;
+  height: auto;
+  border: 1px solid #E2D2BF;
+  border-radius: 10px;
+  background: #FFF;
+}
+
+#edit-recipe-video-preview {
+  border: 1px solid #E2D2BF;
+  border-radius: 10px;
+  background: #FFF;
 }
