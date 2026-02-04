@@ -31,12 +31,13 @@
         <h1 class="form-title">Login</h1>
         <p class="form-sub">Welcome back! Let’s keep it healthy today.</p>
 
-        <form id="loginForm">
+       
+        <form method="get">
           <div class="field">
             <label>Email Address</label>
             <div class="input-row">
               <span class="mini-icon">✉</span>
-              <input type="email" id="loginEmail" placeholder="Enter your email" required />
+              <input type="email" placeholder="Enter your email" required />
             </div>
           </div>
 
@@ -44,12 +45,18 @@
             <label>Password</label>
             <div class="input-row">
               <span class="mini-icon">🔒</span>
-              <input type="password" id="loginPass" placeholder="Enter your password" required />
+              <input type="password" placeholder="Enter your password" required />
             </div>
           </div>
 
-          <button class="btn btn-primary full" type="submit" data-role="user">Login as User →</button>
-          <button class="btn btn-outline full" type="submit" data-role="admin">Login as Admin →</button>
+          
+          <button class="btn btn-primary full" type="submit" formaction="user.html">
+            Login as User →
+          </button>
+
+          <button class="btn btn-outline full" type="submit" formaction="admin.html">
+            Login as Admin →
+          </button>
         </form>
 
         <div class="divider">
@@ -65,6 +72,5 @@
     </div>
   </div>
 
-  <script src="js.js"></script>
 </body>
 </html>

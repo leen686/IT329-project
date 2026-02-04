@@ -1,17 +1,6 @@
-// Login: redirect based on which button was pressed (user/admin)
-var loginForm = document.getElementById("loginForm");
-if (loginForm) {
-  loginForm.addEventListener("submit", function (e) {
-    e.preventDefault();
 
-    var role = e.submitter.getAttribute("data-role");
-    if (role === "admin") {
-      window.location.href = "admin.html";
-    } else {
-      window.location.href = "user.html";
-    }
-  });
-}
+
+
 
 const ingredientsContainer = document.getElementById("add-recipe-ingredients-container");
 const stepsContainer = document.getElementById("add-recipe-steps-container");
