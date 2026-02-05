@@ -1313,10 +1313,7 @@ a{
   color:#D9A441;
   text-decoration:none;
 }
-a:hover{
-  color:#B8832C;
-  text-decoration:underline;
-}
+
 h1{
   font-size:32px;
   font-weight:700;
@@ -1583,19 +1580,3 @@ h1{
 .ad-action-form input[type="submit"]:hover{
   background:#B8832C;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
