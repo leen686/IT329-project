@@ -1430,6 +1430,7 @@ h1{
 }
 /* ===== Links ===== */
 .mr-link{
+  text-align:center;
   color:#D9A441;
   font-weight:500;
 }
