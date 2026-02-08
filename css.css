@@ -1,13 +1,10 @@
-
-
-
 /* ===========================
   Latifah 
   =========================== */
 
 :root {
   --primary: #d9a441;
-  --primary2: #e3b457; /* درجة قريبة */
+  --primary2: #e3b457;
   --primaryHover: #b8832c;
 
   --brown: #6b4f3b;
@@ -883,41 +880,17 @@ input:focus {
 /* ===========================
    Leen's Page 
    =========================== */
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
+
 /* ===========================
      Ranem 
    =========================== */
-   
-   /*Add Recipe Page*/
+
+/*Add Recipe Page*/
 #add-recipe-page {
-  background: #F6EBDD;
+  background: #f6ebdd;
   min-height: 100vh;
-  font-family: 'Poppins', sans-serif;
-  color: #2B1E16;
+  font-family: "Poppins", sans-serif;
+  color: #2b1e16;
 }
 
 /* Content */
@@ -932,14 +905,14 @@ input:focus {
   text-align: center;
   font-size: 32px;
   font-weight: 700;
-  color: #6B4F3B;
+  color: #6b4f3b;
   margin-bottom: 24px;
 }
 
 /* Card Form */
 #add-recipe-form {
-  background: #FFF8EF;
-  border: 1px solid #E2D2BF;
+  background: #fff8ef;
+  border: 1px solid #e2d2bf;
   border-radius: 18px;
   padding: 28px;
   display: flex;
@@ -951,15 +924,15 @@ input:focus {
 /* Labels */
 #add-recipe-form label {
   font-weight: 500;
-  color: #6B4F3B;
+  color: #6b4f3b;
 }
 
 /* Inputs */
 #add-recipe-form input,
 #add-recipe-form select,
 #add-recipe-form textarea {
-  background: #FFF8EF;
-  border: 1px solid #E2D2BF;
+  background: #fff8ef;
+  border: 1px solid #e2d2bf;
   border-radius: 12px;
   padding: 12px 14px;
   font-size: 14px;
@@ -973,7 +946,7 @@ input:focus {
 #add-recipe-form select:focus,
 #add-recipe-form textarea:focus {
   outline: none;
-  border-color: #D9A441;
+  border-color: #d9a441;
   box-shadow: 0 0 0 2px rgba(217, 164, 65, 0.2);
 }
 
@@ -985,8 +958,8 @@ input:focus {
 
 /* Buttons */
 .add-recipe-btn-primary {
-  background: #D9A441;
-  color: #2B1E16;
+  background: #d9a441;
+  color: #2b1e16;
   border: none;
   border-radius: 14px;
   height: 46px;
@@ -996,13 +969,13 @@ input:focus {
 }
 
 .add-recipe-btn-primary:hover {
-  background: #B8832C;
+  background: #b8832c;
 }
 
 .add-recipe-btn-secondary {
-  background: #EFE1CF;
-  color: #6B4F3B;
-  border: 1px solid #E2D2BF;
+  background: #efe1cf;
+  color: #6b4f3b;
+  border: 1px solid #e2d2bf;
   border-radius: 14px;
   height: 42px;
   font-weight: 600;
@@ -1016,30 +989,30 @@ input:focus {
 }
 
 .add-recipe-btn-secondary:hover {
-  background: #E6D3BC;
+  background: #e6d3bc;
 }
 
 #cancel-add-recipe {
-  text-decoration: none;         
-  display: flex;                 
+  text-decoration: none;
+  display: flex;
   align-items: center;
   justify-content: center;
   height: 46px;
 }
 
 #add-recipe-submit-recipe {
-  height: 50px;          
-  padding: 0 28px;      
-  font-size: 17px;       
-  font-weight: 600;     
-  display: flex;         
+  height: 50px;
+  padding: 0 28px;
+  font-size: 17px;
+  font-weight: 600;
+  display: flex;
   align-items: center;
   justify-content: center;
 }
 
 #add-recipe-submit-recipe,
 #cancel-add-recipe {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 600;
 }
 
@@ -1070,7 +1043,7 @@ input:focus {
 .ingredient-number,
 .step-number {
   font-weight: 600;
-  color: #6B4F3B;
+  color: #6b4f3b;
   min-width: 20px;
 }
 
@@ -1088,15 +1061,12 @@ input:focus {
   flex: 1;
 }
 
-
-
-
 /*Edit Recipe Page*/
 
 #edit-recipe-page {
-  background: #F6EBDD;
-  font-family: 'Poppins', sans-serif;
-  color: #2B1E16;
+  background: #f6ebdd;
+  font-family: "Poppins", sans-serif;
+  color: #2b1e16;
 }
 
 #edit-recipe-content {
@@ -1109,13 +1079,13 @@ input:focus {
   text-align: center;
   font-size: 32px;
   font-weight: 700;
-  color: #6B4F3B;
+  color: #6b4f3b;
   margin-bottom: 24px;
 }
 
 #edit-recipe-form {
-  background: #FFF8EF;
-  border: 1px solid #E2D2BF;
+  background: #fff8ef;
+  border: 1px solid #e2d2bf;
   border-radius: 18px;
   padding: 28px;
   display: flex;
@@ -1126,14 +1096,14 @@ input:focus {
 
 #edit-recipe-form label {
   font-weight: 500;
-  color: #6B4F3B;
+  color: #6b4f3b;
 }
 
 #edit-recipe-form input,
 #edit-recipe-form select,
 #edit-recipe-form textarea {
-  background: #FFF8EF;
-  border: 1px solid #E2D2BF;
+  background: #fff8ef;
+  border: 1px solid #e2d2bf;
   border-radius: 12px;
   padding: 12px 14px;
   font-size: 14px;
@@ -1147,7 +1117,7 @@ input:focus {
 #edit-recipe-form select:focus,
 #edit-recipe-form textarea:focus {
   outline: none;
-  border-color: #D9A441;
+  border-color: #d9a441;
   box-shadow: 0 0 0 2px rgba(217, 164, 65, 0.2);
 }
 
@@ -1168,7 +1138,7 @@ input:focus {
 .ingredient-number,
 .step-number {
   font-weight: 600;
-  color: #6B4F3B;
+  color: #6b4f3b;
   min-width: 22px;
 }
 
@@ -1187,9 +1157,9 @@ input:focus {
 }
 
 .edit-recipe-btn-secondary {
-  background: #EFE1CF;
-  color: #6B4F3B;
-  border: 1px solid #E2D2BF;
+  background: #efe1cf;
+  color: #6b4f3b;
+  border: 1px solid #e2d2bf;
   border-radius: 14px;
   height: 44px;
   padding: 0 18px;
@@ -1203,12 +1173,12 @@ input:focus {
 }
 
 .edit-recipe-btn-secondary:hover {
-  background: #E6D3BC;
+  background: #e6d3bc;
 }
 
 .edit-recipe-btn-primary {
-  background: #D9A441;
-  color: #2B1E16;
+  background: #d9a441;
+  color: #2b1e16;
   border: none;
   border-radius: 14px;
   height: 50px;
@@ -1221,7 +1191,7 @@ input:focus {
 }
 
 .edit-recipe-btn-primary:hover {
-  background: #B8832C;
+  background: #b8832c;
 }
 
 #edit-recipe-actions {
@@ -1229,12 +1199,12 @@ input:focus {
   gap: 12px;
   justify-content: flex-end;
   margin-top: 16px;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 600;
 }
 
 #edit-recipe-save {
-	font-size: 16px;
+  font-size: 16px;
 }
 
 #edit-recipe-photo-row,
@@ -1250,43 +1220,27 @@ input:focus {
   flex-direction: column;
   gap: 6px;
   font-size: 14px;
-  color: #6B4F3B;
+  color: #6b4f3b;
 }
 
 #edit-recipe-photo-preview {
   width: 120px;
   height: auto;
-  border: 1px solid #E2D2BF;
+  border: 1px solid #e2d2bf;
   border-radius: 10px;
-  background: #FFF;
+  background: #fff;
 }
 
 #edit-recipe-video-preview {
-  border: 1px solid #E2D2BF;
+  border: 1px solid #e2d2bf;
   border-radius: 10px;
-  background: #FFF;
+  background: #fff;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* =================================================MY RECIPES PAGE======================================================= */
 
-
 /* ===== Font ===== */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
 /* ===== Base ===== */
 
@@ -1302,282 +1256,282 @@ input:focus {
   object-fit: contain;
 }
 
-body{
-  margin:0;
-  font-family:Poppins, Arial, sans-serif;
-  font-size:16px;
-  color:#2B1E16;
-  background:#F6EBDD;
+body {
+  margin: 0;
+  font-family: Poppins, Arial, sans-serif;
+  font-size: 16px;
+  color: #2b1e16;
+  background: #f6ebdd;
 }
-a{
-  color:#D9A441;
-  text-decoration:none;
+a {
+  color: #d9a441;
+  text-decoration: none;
 }
 
-h1{
-  font-size:32px;
-  font-weight:700;
-  color:#6B4F3B;
-  margin-bottom:8px;
+h1 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #6b4f3b;
+  margin-bottom: 8px;
 }
 /* ===== Navbar ===== */
-.mr-navbar{
-  background:#6B4F3B;
-  color:#FFF8EF;
-  padding:14px 24px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+.mr-navbar {
+  background: #6b4f3b;
+  color: #fff8ef;
+  padding: 14px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.mr-brand-link{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  color:#FFF8EF;
+.mr-brand-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff8ef;
 }
-.mr-brand-link:hover{
-  color:#D9A441;
-  text-decoration:none;
+.mr-brand-link:hover {
+  color: #d9a441;
+  text-decoration: none;
 }
-.mr-logo{
-  width:34px;
-  height:34px;
-  border-radius:10px;
-  object-fit:cover;
+.mr-logo {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  object-fit: cover;
 }
-.mr-nav-link{
-  color:#FFF8EF;
-  margin-left:16px;
+.mr-nav-link {
+  color: #fff8ef;
+  margin-left: 16px;
 }
-.mr-nav-link:hover{
-  color:#D9A441;
+.mr-nav-link:hover {
+  color: #d9a441;
 }
 /* ===== Layout ===== */
-.mr-container{
-  max-width:1100px;
-  margin:auto;
-  padding:24px;
+.mr-container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 24px;
 }
-.mr-actions{
-  margin:16px 0 24px;
+.mr-actions {
+  margin: 16px 0 24px;
 }
 /* ===== Button ===== */
-.mr-btn-primary{
-  background:#D9A441;
-  color:#2B1E16;
-  padding:12px 18px;
-  border-radius:12px;
-  font-weight:600;
-  display:inline-block;
+.mr-btn-primary {
+  background: #d9a441;
+  color: #2b1e16;
+  padding: 12px 18px;
+  border-radius: 12px;
+  font-weight: 600;
+  display: inline-block;
 }
-.mr-btn-primary:hover{
-  background:#B8832C;
-  text-decoration:none;
+.mr-btn-primary:hover {
+  background: #b8832c;
+  text-decoration: none;
 }
 /* ===== Table ===== */
-.mr-table{
-  width:100%;
-  border-collapse:collapse;
-  background:#FFF8EF;
-  border:1px solid #E2D2BF;
+.mr-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff8ef;
+  border: 1px solid #e2d2bf;
 }
-.mr-table th{
-  background:#EFE1CF;
-  color:#6B4F3B;
-  font-weight:700;
-  padding:12px;
-  border-bottom:1px solid #E2D2BF;
-  text-align:left;
+.mr-table th {
+  background: #efe1cf;
+  color: #6b4f3b;
+  font-weight: 700;
+  padding: 12px;
+  border-bottom: 1px solid #e2d2bf;
+  text-align: left;
 }
-.mr-table td{
-  padding:12px;
-  border-bottom:1px solid #E2D2BF;
-  vertical-align:top;
+.mr-table td {
+  padding: 12px;
+  border-bottom: 1px solid #e2d2bf;
+  vertical-align: top;
 }
-.mr-table tr:hover{
-  background:#F6EBDD;
+.mr-table tr:hover {
+  background: #f6ebdd;
 }
 /* ===== Recipe cell ===== */
-.mr-recipe-cell{
-  display:flex;
-  align-items:center;
-  gap:12px;
+.mr-recipe-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
-.mr-recipe-img{
-  width:64px;
-  height:64px;
-  border-radius:12px;
-  object-fit:cover;
-  border:1px solid #E2D2BF;
+.mr-recipe-img {
+  width: 64px;
+  height: 64px;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 1px solid #e2d2bf;
 }
-.mr-recipe-name{
-  font-weight:700;
-  color:#6B4F3B;
+.mr-recipe-name {
+  font-weight: 700;
+  color: #6b4f3b;
 }
-.mr-recipe-cat{
-  font-size:14px;
-  color:#7A6A5F;
+.mr-recipe-cat {
+  font-size: 14px;
+  color: #7a6a5f;
 }
 /* ===== Lists ===== */
-.mr-list{
-  margin:0;
-  padding-left:18px;
+.mr-list {
+  margin: 0;
+  padding-left: 18px;
 }
 /* ===== Text helpers ===== */
-.mr-muted{
-  font-size:14px;
-  color:#7A6A5F;
+.mr-muted {
+  font-size: 14px;
+  color: #7a6a5f;
 }
 /* ===== Links ===== */
-.mr-link{
-  text-align:center;
-  color:#D9A441;
-  font-weight:500;
+.mr-link {
+  text-align: center;
+  color: #d9a441;
+  font-weight: 500;
 }
-.mr-link-danger{
-  color:#B3261E;
-  font-weight:500;
+.mr-link-danger {
+  color: #b3261e;
+  font-weight: 500;
 }
-.mr-link-danger:hover{
-  color:#8F1F18;
+.mr-link-danger:hover {
+  color: #8f1f18;
 }
 /* ===== Footer ===== */
-.mr-footer{
-  text-align:center;
-  padding:24px;
-  color:#7A6A5F;
+.mr-footer {
+  text-align: center;
+  padding: 24px;
+  color: #7a6a5f;
 }
 
 /* =================================================ADMIN PAGE======================================================= */
 
 /* ===== Font (allowed) ===== */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
 /* ===== Admin layout ===== */
-.ad-container{
-  max-width:1100px;
-  margin:auto;
-  padding:24px;
+.ad-container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 24px;
 }
 
-.ad-welcome-text{
-  font-size:20px;
-  font-weight:700;
-  color:#6B4F3B;
-  margin:18px 0 12px;
+.ad-welcome-text {
+  font-size: 20px;
+  font-weight: 700;
+  color: #6b4f3b;
+  margin: 18px 0 12px;
 }
 
 /* ===== Admin boxes ===== */
 .ad-info-box,
 .ad-reports-box,
-.ad-blocked-box{
-  background:#FFF8EF;
-  border:1px solid #E2D2BF;
-  border-radius:16px;
-  padding:16px;
-  margin-bottom:20px;
+.ad-blocked-box {
+  background: #fff8ef;
+  border: 1px solid #e2d2bf;
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 20px;
 }
 
 /* ===== Titles ===== */
-.ad-section-title{
-  margin:0 0 12px 0;
-  font-size:24px;
-  font-weight:700;
-  color:#6B4F3B;
+.ad-section-title {
+  margin: 0 0 12px 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: #6b4f3b;
 }
 
 /* ===== Admin tables ===== */
-.ad-table{
-  width:100%;
-  border-collapse:collapse;
-  background:#FFF8EF;
-  border:1px solid #E2D2BF;
+.ad-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff8ef;
+  border: 1px solid #e2d2bf;
 }
 
-.ad-table th{
-  background:#EFE1CF;
-  color:#6B4F3B;
-  font-weight:700;
-  padding:12px;
-  text-align:left;
-  border-bottom:1px solid #E2D2BF;
+.ad-table th {
+  background: #efe1cf;
+  color: #6b4f3b;
+  font-weight: 700;
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #e2d2bf;
 }
 
-.ad-table td{
-  padding:12px;
-  vertical-align:top;
-  border-bottom:1px solid #E2D2BF;
+.ad-table td {
+  padding: 12px;
+  vertical-align: top;
+  border-bottom: 1px solid #e2d2bf;
 }
 
-.ad-table tr:hover{
-  background:#F6EBDD;
+.ad-table tr:hover {
+  background: #f6ebdd;
 }
 
 /* ===== Recipe link ===== */
-.ad-recipe-link{
-  color:#2B1E16;
-  font-weight:600;
-  text-decoration:none;
+.ad-recipe-link {
+  color: #2b1e16;
+  font-weight: 600;
+  text-decoration: none;
 }
-.ad-recipe-link:hover{
-  color:#B8832C;
-  text-decoration:underline;
+.ad-recipe-link:hover {
+  color: #b8832c;
+  text-decoration: underline;
 }
 
 /* ===== Creator (avatar + name) ===== */
-.ad-creator{
-  display:flex;
-  align-items:center;
-  gap:10px;
+.ad-creator {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.ad-user-img{
-  width:40px;
-  height:40px;
-  border-radius:50%;
-  object-fit:cover;
-  border:1px solid #E2D2BF;
+.ad-user-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #e2d2bf;
 }
 
 /* =================================================
    IMPORTANT FIX: stop global CSS from stretching form
    ================================================= */
 
-.ad-action-form{
-  width:auto;
-  margin:0;
-  font-size:14px;
+.ad-action-form {
+  width: auto;
+  margin: 0;
+  font-size: 14px;
 }
 
 /* make label clean and aligned */
-.ad-action-form label{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  margin:6px 0;
+.ad-action-form label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 6px 0;
 }
 
 /* prevent global input{width:100%} from affecting radios */
-.ad-action-form input[type="radio"]{
-  width:auto;
-  height:auto;
-  margin:0;
-  display:inline-block;
+.ad-action-form input[type="radio"] {
+  width: auto;
+  height: auto;
+  margin: 0;
+  display: inline-block;
 }
 
 /* keep submit button normal size even if global styles exist */
-.ad-action-form input[type="submit"]{
-  width:auto;
-  display:inline-block;
-  background:#D9A441;
-  color:#2B1E16;
-  border:none;
-  padding:10px 14px;
-  border-radius:12px;
-  font-weight:600;
-  cursor:pointer;
+.ad-action-form input[type="submit"] {
+  width: auto;
+  display: inline-block;
+  background: #d9a441;
+  color: #2b1e16;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
 }
 
-.ad-action-form input[type="submit"]:hover{
-  background:#B8832C;
+.ad-action-form input[type="submit"]:hover {
+  background: #b8832c;
 }
