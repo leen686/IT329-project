@@ -10,7 +10,7 @@
 
 <div class="navbar">
   <div class="wrap nav-row">
-    <a class="brand" href="index.html">
+    <a class="brand" href="user.html">
       <img src="images/log.png" alt="Ramadan Light logo" class="brand-logo">
       <div class="brand-text">
         <div class="brand-name">Ramadan Light</div>
@@ -19,8 +19,8 @@
     </a>
 
     <div class="nav-links">
-      <a class="link" href="index.html">Home</a>
-      <a class="btn btn-primary" href="index.html">Sign out</a>
+      <a class="link" href="user.html">Home</a>
+      <a class="btn btn-primary" href="index.html">Log out</a>
     </div>
   </div>
 </div>
@@ -33,7 +33,7 @@
   <form id="edit-recipe-form" action="my-recipes.html">
 
     <!-- Recipe name -->
-    <label for="edit-recipe-name">Recipe name</label>
+    <label for="edit-recipe-name">Recipe name *</label>
     <input
       type="text"
       id="edit-recipe-name"
@@ -42,7 +42,7 @@
     >
 
     <!-- Category -->
-    <label for="edit-recipe-category">Category</label>
+    <label for="edit-recipe-category">Category *</label>
     <select id="edit-recipe-category" required>
       <option>Suhoor</option>
       <option selected>Iftar</option>
@@ -50,13 +50,13 @@
     </select>
 
     <!-- Description -->
-    <label for="edit-recipe-description">Description</label>
+    <label for="edit-recipe-description">Description *</label>
     <textarea id="edit-recipe-description" rows="3" required>
 A quick, wholesome sandwich full of crunchy veggies and creamy hummus — perfect for a light iftar. Loaded with fiber, vitamins, and plant-based protein from chickpeas.
     </textarea>
 
     <!-- Photo -->
-    <label>Photo</label>
+    <label>Photo *</label>
 
 <div id="edit-recipe-photo-row">
   <input type="file" id="edit-recipe-photo" accept="image/*">
@@ -72,7 +72,7 @@ A quick, wholesome sandwich full of crunchy veggies and creamy hummus — perfec
 </div>
 
     <!-- Ingredients -->
-    <label>Ingredients</label>
+    <label>Ingredients *</label>
     <div id="edit-recipe-ingredients-container">
 
       <div class="ingredient-row">
@@ -120,7 +120,7 @@ A quick, wholesome sandwich full of crunchy veggies and creamy hummus — perfec
     </div>
 
     <!-- Instructions  -->
-    <label>Instructions</label>
+    <label>Instructions *</label>
     <div id="edit-recipe-steps-container">
 
       <div class="step-row">

@@ -9,7 +9,7 @@
 
  <div class="navbar">
     <div class="wrap nav-row">
-      <a class="brand" href="index.html">
+      <a class="brand" href="user.html">
         <img src="images/log.png" alt="Ramadan Light logo" class="brand-logo">
         <div class="brand-text">
           <div class="brand-name">Ramadan Light</div>
@@ -18,8 +18,8 @@
       </a>
 
       <div class="nav-links">
-        <a class="link" href="index.html">Home</a>
-        <a class="btn btn-primary" href="index.html">Sign out</a>
+        <a class="link" href="user.html">Home</a>
+        <a class="btn btn-primary" href="index.html">Log out</a>
       </div>
     </div>
   </div>
@@ -32,10 +32,10 @@
 
     <form class="card" id="add-recipe-form" action="my-recipes.html">
       
-      <label for="add-recipe-name">Recipe name</label>
+      <label for="add-recipe-name">Recipe name *</label>
       <input type="text" id="add-recipe-name" required />
 
-      <label for="add-recipe-category">Category</label>
+      <label for="add-recipe-category">Category *</label>
       <select id="add-recipe-category" required>
         <option value="">Select category</option>
         <option value="Suhoor">Suhoor</option>
@@ -43,14 +43,14 @@
         <option value="Snacks">Snacks</option>
       </select>
 
-      <label for="add-recipe-description">Description</label>
+      <label for="add-recipe-description">Description *</label>
       <textarea id="add-recipe-description" rows="3" required></textarea>
 
-      <label for="add-recipe-photo">Photo</label>
+      <label for="add-recipe-photo">Photo *</label>
       <input type="file" id="add-recipe-photo" accept="image/*" required />
 
       <!-- Ingredients -->
-      <label>Ingredients</label>
+      <label>Ingredients *</label>
 <div id="add-recipe-ingredients-container">
   <div class="ingredient-row">
     <span class="ingredient-number">1.</span>
@@ -77,7 +77,7 @@
 </button>
 
       <!-- Instructions -->
-      <label>Instructions</label>
+      <label>Instructions *</label>
 <div id="add-recipe-steps-container">
   <div class="step-row">
     <span class="step-number">1.</span>
