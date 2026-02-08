@@ -26,7 +26,7 @@
   color: var(--text);
 }
 
-/* باقي الكلاسات نفسها بدون تغيير أسماء */
+
 .signup-page .wrap{
   width: 1100px;
   max-width: calc(100% - 48px);
@@ -277,6 +277,7 @@
 /* ---------------------Recipe ----------------*/
 .viewrecipe-page{
   --primary:#D9A441;
+  --primary2:#E3B457;
   --primaryHover:#B8832C;
 
   --brown:#6B4F3B;
@@ -310,9 +311,10 @@
 
 /* Simple navbar  */
 .viewrecipe-page .navbar{
-  background: rgba(246,235,221,0.9);
-  border-bottom: 1px solid var(--border);
-  padding:14px 0;
+  padding: 14px 0;
+  background: rgba(240, 199, 145, 0.6);   
+  backdrop-filter: blur(4px);            
+  border-bottom: none;  
 }
 
 .viewrecipe-page .nav-row{
@@ -400,13 +402,16 @@
 }
 
 .viewrecipe-page .btn-primary{
-  background: var(--primary);
   color: var(--text);
+  background: linear-gradient(90deg, var(--primary2), var(--primary));
+  box-shadow: 0 10px 22px rgba(217,164,65,0.25);
 }
 
 .viewrecipe-page .btn-primary:hover{
-  background: var(--primaryHover);
+  background: linear-gradient(90deg, var(--primary), var(--primaryHover));
+  transform: translateY(-1px);
 }
+
 
 .viewrecipe-page .btn-outline{
   background: rgba(255,248,239,0.8);
@@ -537,6 +542,33 @@
   .viewrecipe-page .wrap{ max-width: calc(100% - 28px); }
   .viewrecipe-page .top-actions{ justify-content:flex-start; }
   .viewrecipe-page .recipe-photo{ height: 190px; }
+}
+.comment-content {
+  position: relative;
+  width: 100%;
+}
+
+.comment-date {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 11px;
+  color: #888;
+}
+.viewrecipe-page .nav-row{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.viewrecipe-page .nav-links{
+  display: flex;
+  align-items: center;
+  gap: 14px;   /* المسافة بينهم */
+}
+
+.viewrecipe-page .link{
+  display: inline-block;
+  margin: 0;
 }
 
 /* -------------- end Recipe ------------  */
