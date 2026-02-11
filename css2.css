@@ -563,12 +563,31 @@
 .viewrecipe-page .nav-links{
   display: flex;
   align-items: center;
-  gap: 14px;   /* المسافة بينهم */
+  gap: 14px;  
 }
 
 .viewrecipe-page .link{
   display: inline-block;
   margin: 0;
 }
+.footer {
+  background: #6b4f3b;
+  color: rgba(255, 248, 239, 0.85);
+  padding: 18px 0;
+}
+
+.footer-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+}
+
+.footer-mark {
+  color: #d9a441;
+  font-weight: bold;
+}
+
 
 /* -------------- end Recipe ------------  */
