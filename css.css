@@ -1494,7 +1494,7 @@ h1 {
 }
 
 /* =================================================
-   IMPORTANT FIX: stop global CSS from stretching form
+layout fixes
    ================================================= */
 
 .ad-action-form {
@@ -1503,7 +1503,7 @@ h1 {
   font-size: 14px;
 }
 
-/* make label clean and aligned */
+
 .ad-action-form label {
   display: flex;
   align-items: center;
@@ -1511,7 +1511,7 @@ h1 {
   margin: 6px 0;
 }
 
-/* prevent global input{width:100%} from affecting radios */
+
 .ad-action-form input[type="radio"] {
   width: auto;
   height: auto;
@@ -1519,7 +1519,7 @@ h1 {
   display: inline-block;
 }
 
-/* keep submit button normal size even if global styles exist */
+
 .ad-action-form input[type="submit"] {
   width: auto;
   display: inline-block;
@@ -1535,3 +1535,4 @@ h1 {
 .ad-action-form input[type="submit"]:hover {
   background: #b8832c;
 }
+
