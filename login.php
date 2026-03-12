@@ -40,7 +40,7 @@ if (isset($_POST['login'])) {
                     header("Location: admin.html");
                     exit();
                 } else {
-                    header("Location: user.html");
+                    header("Location: user.php");
                     exit();
                 }
 
@@ -86,7 +86,13 @@ if (isset($_POST['login'])) {
       <div class="form-card">
         <h1 class="form-title">Login</h1>
         <p class="form-sub">Welcome back! Let’s keep it healthy today.</p>
-
+      <!-- اضافه عشان لما ما يقدر اليوزر يدخل يطلع له رساله واضحه-->
+        <?php if (isset($_GET['error']) && !empty($_GET['error'])) { ?> 
+         <p style="color:red; text-align:center; margin-bottom:15px;">
+          <?php echo htmlspecialchars($_GET['error']); ?>
+         </p>
+        <?php } ?>
+        
         <?php if (!empty($error)) { ?>
           <p style="color:red; text-align:center; margin-bottom:15px;"><?php echo $error; ?></p>
         <?php } ?>
