@@ -1,3 +1,87 @@
+
+<?php
+session_start();
+include("db.php");
+
+if (!isset($_SESSION['userID']) || $_SESSION['userType'] != "user") {
+    header("Location: login.php?error=You must login first");
+    exit();
+}
+
+$userID = (int) $_SESSION['userID'];
+
+$categoriesSql = "SELECT * FROM recipecategory ORDER BY id ASC";
+$categoriesResult = mysqli_query($conn, $categoriesSql);
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+    $name = mysqli_real_escape_string($conn, $_POST['name']);
+    $categoryID = (int) $_POST['category'];
+    $description = mysqli_real_escape_string($conn, $_POST['description']);
+
+    $photoName = $_FILES['photo']['name'];
+    $tempName = $_FILES['photo']['tmp_name'];
+
+    $newPhotoName = time() . "_" . $photoName;
+    move_uploaded_file($tempName, "images/" . $newPhotoName);
+
+    $videoPath = "";
+
+    if (!empty($_FILES['video_file']['name'])) {
+
+        $videoName = time() . "_" . $_FILES['video_file']['name'];
+        move_uploaded_file($_FILES['video_file']['tmp_name'], "videos/" . $videoName);
+        $videoPath = $videoName;
+
+            } elseif (!empty($_POST['video_url'])) {
+
+                $videoPath = mysqli_real_escape_string($conn, $_POST['video_url']);
+                    }
+
+    $insertRecipe = "
+        INSERT INTO recipe (userID, categoryID, name, description, photoFileName, videoFilePath)
+        VALUES ($userID, $categoryID, '$name', '$description', '$newPhotoName', '$videoPath')
+    ";
+    mysqli_query($conn, $insertRecipe);
+
+    $recipeID = mysqli_insert_id($conn);
+
+    if (isset($_POST['ingredient_name'])) {
+        for ($i = 0; $i < count($_POST['ingredient_name']); $i++) {
+
+            $ingName = mysqli_real_escape_string($conn, $_POST['ingredient_name'][$i]);
+            $ingQty = mysqli_real_escape_string($conn, $_POST['ingredient_qty'][$i]);
+
+            if (!empty($ingName)) {
+                mysqli_query($conn, "
+                    INSERT INTO ingredients (recipeID, ingredientName, ingredientQuantity)
+                    VALUES ($recipeID, '$ingName', '$ingQty')
+                ");
+            }
+        }
+    }
+
+    if (isset($_POST['step'])) {
+        for ($i = 0; $i < count($_POST['step']); $i++) {
+
+            $stepText = mysqli_real_escape_string($conn, $_POST['step'][$i]);
+            $order = $i + 1;
+
+            if (!empty($stepText)) {
+                mysqli_query($conn, "
+                    INSERT INTO instructions (recipeID, step, stepOrder)
+                    VALUES ($recipeID, '$stepText', $order)
+                ");
+            }
+        }
+    }
+
+    header("Location: my-recipes.php ");
+    exit();
+}
+?>
+
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -32,7 +116,7 @@
  
   <main class="page" id="add-recipe-content">
 
-    <form class="card" id="add-recipe-form" method="POST" enctype="multipart/form-data" action="my-recipes.php">
+    <form class="card" id="add-recipe-form" method="POST" enctype="multipart/form-data" action="">
       
       <label for="add-recipe-name">Recipe name *</label>
       <input type="text" name="name" id="add-recipe-name" required />
@@ -108,13 +192,13 @@
 		<input
 		type="file"
 		id="add-recipe-video-file"
-                name="video"
+                name="video_file"
 		accept="video/*"
 		/>
       <input
         type="url"
         id="add-recipe-video"
-        name="video"
+        name="video_url"
         placeholder="https://youtube.com/..." />
 
       <div class="actions" id="add-recipe-actions">
@@ -128,6 +212,29 @@
 
     </form>
   </main>
+ 
+ <script>
+const videoFileInput = document.querySelector('input[name="video_file"]');
+const videoURLInput = document.querySelector('input[name="video_url"]');
+
+videoFileInput.addEventListener('change', () => {
+    if (videoFileInput.value !== "") {
+        videoURLInput.value = "";
+        videoURLInput.disabled = true;
+    } else {
+        videoURLInput.disabled = false;
+    }
+});
+
+videoURLInput.addEventListener('input', () => {
+    if (videoURLInput.value !== "") {
+        videoFileInput.value = "";
+        videoFileInput.disabled = true;
+    } else {
+        videoFileInput.disabled = false;
+    }
+});
+</script>
 
   <div class="footer">
     <div class="wrap footer-row">
@@ -140,75 +247,3 @@
 </body>
 </html>
 
-
-<?php
-session_start();
-include("db.php");
-
-
-$userID = (int) $_SESSION['userID'];
-
-$categoriesSql = "SELECT * FROM recipecategory ORDER BY id ASC";
-$categoriesResult = mysqli_query($conn, $categoriesSql);
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-    $name = mysqli_real_escape_string($conn, $_POST['name']);
-    $categoryID = (int) $_POST['category'];
-    $description = mysqli_real_escape_string($conn, $_POST['description']);
-
-    $photoName = $_FILES['photo']['name'];
-    $tempName = $_FILES['photo']['tmp_name'];
-
-    $newPhotoName = time() . "_" . $photoName;
-    move_uploaded_file($tempName, "images/" . $newPhotoName);
-
-    $videoPath = "";
-    if (!empty($_FILES['video']['name'])) {
-        $videoName = time() . "_" . $_FILES['video']['name'];
-        move_uploaded_file($_FILES['video']['tmp_name'], "videos/" . $videoName);
-        $videoPath = $videoName;
-    }
-
-    $insertRecipe = "
-        INSERT INTO recipe (userID, categoryID, name, description, photoFileName, videoFilePath)
-        VALUES ($userID, $categoryID, '$name', '$description', '$newPhotoName', '$videoPath')
-    ";
-    mysqli_query($conn, $insertRecipe);
-
-    $recipeID = mysqli_insert_id($conn);
-
-    if (isset($_POST['ingredient_name'])) {
-        for ($i = 0; $i < count($_POST['ingredient_name']); $i++) {
-
-            $ingName = mysqli_real_escape_string($conn, $_POST['ingredient_name'][$i]);
-            $ingQty = mysqli_real_escape_string($conn, $_POST['ingredient_qty'][$i]);
-
-            if (!empty($ingName)) {
-                mysqli_query($conn, "
-                    INSERT INTO ingredients (recipeID, ingredientName, ingredientQuantity)
-                    VALUES ($recipeID, '$ingName', '$ingQty')
-                ");
-            }
-        }
-    }
-
-    if (isset($_POST['step'])) {
-        for ($i = 0; $i < count($_POST['step']); $i++) {
-
-            $stepText = mysqli_real_escape_string($conn, $_POST['step'][$i]);
-            $order = $i + 1;
-
-            if (!empty($stepText)) {
-                mysqli_query($conn, "
-                    INSERT INTO instructions (recipeID, step, stepOrder)
-                    VALUES ($recipeID, '$stepText', $order)
-                ");
-            }
-        }
-    }
-
-    header("Location: my-recipes.php");
-    exit();
-}
-?>
