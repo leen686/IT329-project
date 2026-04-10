@@ -1,198 +1,212 @@
+<?php
+session_start();
+include("db.php");
+
+if (!isset($_SESSION['userID']) || $_SESSION['userType'] != "user") {
+    header("Location: login.php");
+    exit();
+}
+
+$userID = (int) $_SESSION['userID'];
+
+if (!isset($_GET['id'])) {
+    header("Location: my-recipes.php");
+    exit();
+}
+
+$recipeID = (int) $_GET['id'];
+
+$recipeSql = "SELECT * FROM recipe WHERE id = $recipeID";
+$recipeResult = mysqli_query($conn, $recipeSql);
+
+if (mysqli_num_rows($recipeResult) == 0) {
+    die("Recipe not found");
+}
+
+$recipe = mysqli_fetch_assoc($recipe);
+
+if ($recipe['userID'] != $userID) {
+    die("You are not allowed to edit this recipe");
+}
+
+$categoriesResult = mysqli_query($conn, "SELECT * FROM recipecategory");
+
+$ingredientsResult = mysqli_query($conn, "
+    SELECT * FROM ingredients WHERE recipeID = $recipeID
+");
+
+$stepsResult = mysqli_query($conn, "
+    SELECT * FROM instructions WHERE recipeID = $recipeID ORDER BY stepOrder ASC
+");
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+    $name = mysqli_real_escape_string($conn, $_POST['name']);
+    $categoryID = (int) $_POST['category'];
+    $description = mysqli_real_escape_string($conn, $_POST['description']);
+
+    $photoName = $recipe['photoFileName'];
+
+    if (!empty($_FILES['photo']['name'])) {
+        $newPhoto = time() . "_" . $_FILES['photo']['name'];
+        move_uploaded_file($_FILES['photo']['tmp_name'], "images/" . $newPhoto);
+        $photoName = $newPhoto;
+    }
+
+    $videoPath = $recipe['videoFilePath'];
+
+    if (!empty($_FILES['video_file']['name'])) {
+        $videoName = time() . "_" . $_FILES['video_file']['name'];
+        move_uploaded_file($_FILES['video_file']['tmp_name'], "videos/" . $videoName);
+        $videoPath = $videoName;
+    } elseif (!empty($_POST['video_url'])) {
+        $videoPath = mysqli_real_escape_string($conn, $_POST['video_url']);
+    }
+
+    mysqli_query($conn, "
+        UPDATE recipe 
+        SET categoryID=$categoryID,
+            name='$name',
+            description='$description',
+            photoFileName='$photoName',
+            videoFilePath='$videoPath'
+        WHERE id=$recipeID
+    ");
+
+    mysqli_query($conn, "DELETE FROM ingredients WHERE recipeID=$recipeID");
+    mysqli_query($conn, "DELETE FROM instructions WHERE recipeID=$recipeID");
+
+    foreach ($_POST['ingredient_name'] as $i => $ingName) {
+        $ingQty = $_POST['ingredient_qty'][$i];
+
+        if (!empty($ingName)) {
+            mysqli_query($conn, "
+                INSERT INTO ingredients (recipeID, ingredientName, ingredientQuantity)
+                VALUES ($recipeID, '$ingName', '$ingQty')
+            ");
+        }
+    }
+
+    foreach ($_POST['step'] as $i => $stepText) {
+        $order = $i + 1;
+
+        if (!empty($stepText)) {
+            mysqli_query($conn, "
+                INSERT INTO instructions (recipeID, step, stepOrder)
+                VALUES ($recipeID, '$stepText', $order)
+            ");
+        }
+    }
+
+    header("Location: my-recipes.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Ramadan Light | Edit recipe</title>
-  <link rel="stylesheet" href="css.css">
+  <title>Edit Recipe</title>
 </head>
 
 <body id="edit-recipe-page">
 
-<div class="navbar">
-  <div class="wrap nav-row">
-    <a class="brand" href="user.html">
-      <img src="images/log.png" alt="Ramadan Light logo" class="brand-logo">
-      <div class="brand-text">
-        <div class="brand-name">Ramadan Light</div>
-        <div class="brand-sub">HEALTHY RECIPES</div>
-      </div>
-    </a>
+<h1 id="edit-recipe-title">Edit Recipe</h1>
 
-    <div class="nav-links">
-      <a class="link" href="user.html">Home</a>
-      <a class="btn btn-primary" href="index.html">Log out</a>
-    </div>
-  </div>
-</div>
+<form id="edit-recipe-form" method="POST" enctype="multipart/form-data">
 
-<!-- Content -->
-<main id="edit-recipe-content">
+<input type="hidden" name="id" value="<?php echo $recipeID; ?>">
 
-  <h1 id="edit-recipe-title">Edit Recipe</h1>
+<!-- name -->
+<label>Recipe name *</label>
+<input type="text" name="name" value="<?php echo htmlspecialchars($recipe['name']); ?>" required>
 
-  <form id="edit-recipe-form" action="my-recipes.html">
+<!-- category -->
+<label>Category *</label>
+<select name="category" required>
+<?php while ($cat = mysqli_fetch_assoc($categoriesResult)) { ?>
+<option value="<?php echo $cat['id']; ?>"
+<?php if ($cat['id'] == $recipe['categoryID']) echo "selected"; ?>>
+<?php echo htmlspecialchars($cat['categoryName']); ?>
+</option>
+<?php } ?>
+</select>
 
-    <!-- Recipe name -->
-    <label for="edit-recipe-name">Recipe name *</label>
-    <input
-      type="text"
-      id="edit-recipe-name"
-      value="Veggie & Hummus Sandwich"
-      required
-    >
+<!-- description -->
+<label>Description *</label>
+<textarea name="description" required><?php echo htmlspecialchars($recipe['description']); ?></textarea>
 
-    <!-- Category -->
-    <label for="edit-recipe-category">Category *</label>
-    <select id="edit-recipe-category" required>
-      <option>Suhoor</option>
-      <option selected>Iftar</option>
-      <option>Snacks</option>
-    </select>
-
-    <!-- Description -->
-    <label for="edit-recipe-description">Description *</label>
-    <textarea id="edit-recipe-description" rows="3" required>
-A quick, wholesome sandwich full of crunchy veggies and creamy hummus — perfect for a light iftar. Loaded with fiber, vitamins, and plant-based protein from chickpeas.
-    </textarea>
-
-    <!-- Photo -->
-    <label>Photo *</label>
+<!-- photo -->
+<label>Photo </label>
 
 <div id="edit-recipe-photo-row">
-  <input type="file" id="edit-recipe-photo" accept="image/*">
+  <input type="file" id="edit-recipe-photo" name="photo" accept="image/*" required>
 
   <div id="edit-recipe-current-photo">
     <span>Current Photo:</span>
+
     <img
-      src="images/Veggie & Hummus Sandwich.jpg"
-      alt="Veggie & Hummus Sandwich"
+      src="images/<?php echo htmlspecialchars($recipe['photoFileName']); ?>"
+      alt="Recipe photo"
       id="edit-recipe-photo-preview"
     >
   </div>
 </div>
 
-    <!-- Ingredients -->
-    <label>Ingredients *</label>
-    <div id="edit-recipe-ingredients-container">
+<!-- ingredients -->
+<h3>Ingredients *</h3>
+<?php while ($ing = mysqli_fetch_assoc($ingredientsResult)) { ?>
+<input type="text" name="ingredient_name[]" value="<?php echo $ing['ingredientName']; ?>" required>
+<input type="text" name="ingredient_qty[]" value="<?php echo $ing['ingredientQuantity']; ?>" required><br>
+<?php } ?>
 
-      <div class="ingredient-row">
-        <span class="ingredient-number">1.</span>
-        <input class="ingredient-name" value="Whole-grain bread" required>
-        <input class="ingredient-qty" value="2 slices" required>
-      </div>
+<!-- steps -->
+<h3>Steps *</h3>
+<?php while ($step = mysqli_fetch_assoc($stepsResult)) { ?>
+<input type="text" name="step[]" value="<?php echo $step['step']; ?>" required><br>
+<?php } ?>
 
-      <div class="ingredient-row">
-        <span class="ingredient-number">2.</span>
-        <input class="ingredient-name" value="Hummus" required>
-        <input class="ingredient-qty" value="3 tbsp" required>
-      </div>
-
-      <div class="ingredient-row">
-        <span class="ingredient-number">3.</span>
-        <input class="ingredient-name" value="Cucumber slices" required>
-        <input class="ingredient-qty" value="¼ cup" required>
-      </div>
-
-      <div class="ingredient-row">
-        <span class="ingredient-number">4.</span>
-        <input class="ingredient-name" value="Tomato slices" required>
-        <input class="ingredient-qty" value="¼ cup" required>
-      </div>
-
-      <div class="ingredient-row">
-        <span class="ingredient-number">5.</span>
-        <input class="ingredient-name" value="Shredded carrot" required>
-        <input class="ingredient-qty" value="¼ cup" required>
-      </div>
-
-      <div class="ingredient-row">
-        <span class="ingredient-number">6.</span>
-        <input class="ingredient-name" value="Lettuce or mixed greens" required>
-        <input class="ingredient-qty" value="Handful" required>
-      </div>
-
-      <div class="ingredient-row">
-        <span class="ingredient-number">7.</span>
-        <input class="ingredient-name" value="Salt & black pepper" required>
-        <input class="ingredient-qty" value="Pinch" required>
-      </div>
-
-    </div>
-
-    <!-- Instructions  -->
-    <label>Instructions *</label>
-    <div id="edit-recipe-steps-container">
-
-      <div class="step-row">
-        <span class="step-number">1.</span>
-        <input class="step-input"
-          value="Spread hummus evenly on both bread slices."
-          required>
-      </div>
-
-      <div class="step-row">
-        <span class="step-number">2.</span>
-        <input class="step-input"
-          value="Layer lettuce, cucumber, tomato, and carrot."
-          required>
-      </div>
-
-      <div class="step-row">
-        <span class="step-number">3.</span>
-        <input class="step-input"
-          value="Season lightly with salt and black pepper."
-          required>
-      </div>
-
-      <div class="step-row">
-        <span class="step-number">4.</span>
-        <input class="step-input"
-          value="Close the sandwich, cut in half, and serve."
-          required>
-      </div>
-
-    </div>
-
-    <!-- Video URL -->
-    <label>Video or URL (optional)</label>
+<!-- video -->
+<label>Video or URL (optional)</label>
 
 <div id="edit-recipe-video-row">
-  <input type="file" id="edit-recipe-video-file" accept="video/*">
+  <input type="file" id="edit-recipe-video-file" name="video_file" accept="video/*">
 
   <div id="edit-recipe-current-video">
     <span>Current Video:</span>
-    No Video Uploaded
+
+    <?php if (!empty($recipe['videoFilePath'])) { ?>
+
+        <?php if (filter_var($recipe['videoFilePath'], FILTER_VALIDATE_URL)) { ?>
+            <a href="<?php echo htmlspecialchars($recipe['videoFilePath']); ?>" target="_blank">
+              View Video Link
+            </a>
+
+        <?php } else { ?>
+            <video width="200" controls>
+              <source src="videos/<?php echo htmlspecialchars($recipe['videoFilePath']); ?>">
+              Your browser does not support video.
+            </video>
+        <?php } ?>
+
+    <?php } else { ?>
+        No Video Uploaded
+    <?php } ?>
+
   </div>
 </div>
 
 <input
   type="url"
   id="edit-recipe-video-url"
-  placeholder="https://youtube.com/...">
+  name="video_url"
+  placeholder="https://youtube.com/..."
+>
 
-    <!-- Actions -->
-    <div id="edit-recipe-actions">
-      <button type="submit" class="edit-recipe-btn-primary" id="edit-recipe-save">
-        Save changes
-      </button>
-      <a href="my-recipes.html" class="edit-recipe-btn-secondary" id="edit-recipe-cancel">
-        Cancel
-      </a>
-    </div>
+<!-- actions -->
+<button type="submit">Save</button>
 
-  </form>
-</main>
+</form>
 
-<div class="footer">
-    <div class="wrap footer-row">
-      <div class="footer-mark">☾</div>
-      <div>© 2026 Ramadan Light — Nourishing bodies and souls.</div>
-    </div>
-  </div>
-  
 </body>
 </html>
-
-<?php
-
-?>
