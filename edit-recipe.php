@@ -3,7 +3,7 @@ session_start();
 include("db.php");
 
 if (!isset($_SESSION['userID']) || $_SESSION['userType'] != "user") {
-    header("Location: login.php");
+    header("Location: login.php?error=You must login first");
     exit();
 }
 
