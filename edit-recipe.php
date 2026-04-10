@@ -23,7 +23,7 @@ if (mysqli_num_rows($recipeResult) == 0) {
     die("Recipe not found");
 }
 
-$recipe = mysqli_fetch_assoc($recipe);
+$recipe = mysqli_fetch_assoc($recipeResult);
 
 if ($recipe['userID'] != $userID) {
     die("You are not allowed to edit this recipe");
@@ -106,13 +106,31 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Edit Recipe</title>
+  <title>Ramadan Light | Edit Recipe</title>
+  <link rel="stylesheet" href="css.css" />
 </head>
 
 <body id="edit-recipe-page">
 
+    <div class="navbar">
+    <div class="wrap nav-row">
+      <a class="brand" href="user.php">
+        <img src="images/log.png" alt="Ramadan Light logo" class="brand-logo">
+        <div class="brand-text">
+          <div class="brand-name">Ramadan Light</div>
+          <div class="brand-sub">HEALTHY RECIPES</div>
+        </div>
+      </a>
+
+      <div class="nav-links">
+        <a class="link" href="user.php">Home</a>
+        <a class="btn btn-primary" href="index.php">Log out</a>
+      </div>
+    </div>
+  </div>
 <h1 id="edit-recipe-title">Edit Recipe</h1>
 
+ <main class="page" id="edit-recipe-content">
 <form id="edit-recipe-form" method="POST" enctype="multipart/form-data">
 
 <input type="hidden" name="id" value="<?php echo $recipeID; ?>">
@@ -140,7 +158,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <label>Photo </label>
 
 <div id="edit-recipe-photo-row">
-  <input type="file" id="edit-recipe-photo" name="photo" accept="image/*" required>
+  <input type="file" id="edit-recipe-photo" name="photo" accept="image/*" >
 
   <div id="edit-recipe-current-photo">
     <span>Current Photo:</span>
@@ -201,12 +219,33 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   id="edit-recipe-video-url"
   name="video_url"
   placeholder="https://youtube.com/..."
+  value="<?php 
+    if (!empty($recipe['videoFilePath']) && filter_var($recipe['videoFilePath'], FILTER_VALIDATE_URL)) {
+        echo htmlspecialchars($recipe['videoFilePath']);
+    }
+  ?>"
 >
 
 <!-- actions -->
-<button type="submit">Save</button>
+      <div class="actions" id="edit-recipe-actions">
+        <button type="submit" class="edit-recipe-btn-primary" id="edit-recipe-save">
+          Save
+        </button>
+        <a href="my-recipes.php" class="edit-recipe-btn-secondary" id="cancel-edit-recipe">
+          Cancel
+        </a>
+      </div>
 
 </form>
-
+ </main>
+ 
+<div class="footer">
+    <div class="wrap footer-row">
+      <div class="footer-mark">☾</div>
+      <div>© 2026 Ramadan Light — Nourishing bodies and souls.</div>
+    </div>
+  </div>
+  
+  <script src="js.js"></script>
 </body>
 </html>
