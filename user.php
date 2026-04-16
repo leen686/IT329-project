@@ -2,13 +2,17 @@
 session_start();
 include("db.php");
 
-if (!isset($_SESSION['userID']) || !isset($_SESSION['userType']) || $_SESSION['userType'] != "user") {
+if (!isset($_SESSION['userID'])) {
+    header("Location: login.php?error=You must login as a regular user first");
+    exit();
+}
+
+if (!isset($_SESSION['userType']) || $_SESSION['userType'] != 'user') {
     header("Location: login.php?error=You must login as a regular user first");
     exit();
 }
 
 $userID = (int) $_SESSION['userID'];
-
 /* user info */
 $userSql = "SELECT * FROM user WHERE id = $userID";
 $userResult = mysqli_query($conn, $userSql);
