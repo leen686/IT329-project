@@ -37,7 +37,7 @@ if (isset($_POST['login'])) {
                 $_SESSION['emailAddress'] = $row['emailAddress'];
 
                 if ($row['userType'] == "admin") {
-                    header("Location: admin.html");
+                    header("Location: admin.php");
                     exit();
                 } else {
                     header("Location: user.php");
