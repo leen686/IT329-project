@@ -126,7 +126,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <option value="">Select Category</option>
         <?php while ($cat = mysqli_fetch_assoc($categoriesResult)) { ?>
             <option value="<?php echo $cat['id']; ?>">
-                <?php echo htmlspecialchars($cat['categoryName']); ?>
+                <?php echo $cat['categoryName']; ?>
             </option>
         <?php } ?>
       </select>
