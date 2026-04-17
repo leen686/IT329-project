@@ -46,35 +46,47 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $recipeID = mysqli_insert_id($conn);
 
-    if (isset($_POST['ingredient_name'])) {
-        for ($i = 0; $i < count($_POST['ingredient_name']); $i++) {
+    if (!empty($_POST['ingredient_name']) && !empty($_POST['ingredient_qty'])) {
 
-            $ingName = mysqli_real_escape_string($conn, $_POST['ingredient_name'][$i]);
-            $ingQty = mysqli_real_escape_string($conn, $_POST['ingredient_qty'][$i]);
+    foreach ($_POST['ingredient_name'] as $i => $ingName) {
 
-            if (!empty($ingName)) {
-                mysqli_query($conn, "
-                    INSERT INTO ingredients (recipeID, ingredientName, ingredientQuantity)
-                    VALUES ($recipeID, '$ingName', '$ingQty')
-                ");
-            }
+        $ingName = trim($ingName);
+        $ingQty  = trim($_POST['ingredient_qty'][$i]);
+
+        if ($ingName !== "" && $ingQty !== "") {
+
+            $ingName = mysqli_real_escape_string($conn, $ingName);
+            $ingQty  = mysqli_real_escape_string($conn, $ingQty);
+
+            mysqli_query($conn, "
+                INSERT INTO ingredients (recipeID, ingredientName, ingredientQuantity)
+                VALUES ($recipeID, '$ingName', '$ingQty')
+            ");
         }
     }
+}
 
-    if (isset($_POST['step'])) {
-        for ($i = 0; $i < count($_POST['step']); $i++) {
+    if (!empty($_POST['step'])) {
 
-            $stepText = mysqli_real_escape_string($conn, $_POST['step'][$i]);
+    foreach ($_POST['step'] as $i => $stepText) {
+
+        $stepText = trim($stepText);
+
+        if ($stepText !== "") {
+
+            $stepText = mysqli_real_escape_string($conn, $stepText);
             $order = $i + 1;
 
-            if (!empty($stepText)) {
-                mysqli_query($conn, "
-                    INSERT INTO instructions (recipeID, step, stepOrder)
-                    VALUES ($recipeID, '$stepText', $order)
-                ");
-            }
+            mysqli_query($conn, "
+                INSERT INTO instructions (recipeID, step, stepOrder)
+                VALUES ($recipeID, '$stepText', $order)
+            ");
         }
     }
+}echo "<pre>";
+print_r($_POST);
+echo "</pre>";
+exit();
 
     header("Location: my-recipes.php ");
     exit();

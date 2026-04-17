@@ -14,11 +14,27 @@ addIngredientBtn.addEventListener("click", () => {
   const row = document.createElement("div");
   row.className = "ingredient-row";
 
-  row.innerHTML = `
-    <span class="ingredient-number">${count}.</span>
-    <input type="text" class="ingredient-name" placeholder="Ingredient name" required />
-    <input type="text" class="ingredient-qty" placeholder="Quantity" required />
-  `;
+  const number = document.createElement("span");
+  number.className = "ingredient-number";
+  number.textContent = count + ".";
+
+  const nameInput = document.createElement("input");
+  nameInput.type = "text";
+  nameInput.name = "ingredient_name[]";
+  nameInput.className = "ingredient-name";
+  nameInput.placeholder = "Ingredient name";
+  nameInput.required = true;
+
+  const qtyInput = document.createElement("input");
+  qtyInput.type = "text";
+  qtyInput.name = "ingredient_qty[]";
+  qtyInput.className = "ingredient-qty";
+  qtyInput.placeholder = "Quantity";
+  qtyInput.required = true;
+
+  row.appendChild(number);
+  row.appendChild(nameInput);
+  row.appendChild(qtyInput);
 
   ingredientsContainer.appendChild(row);
 });
@@ -30,10 +46,19 @@ addStepBtn.addEventListener("click", () => {
   const row = document.createElement("div");
   row.className = "step-row";
 
-  row.innerHTML = `
-    <span class="step-number">${count}.</span>
-    <input type="text" class="step-input" placeholder="Step description" required />
-  `;
+  const number = document.createElement("span");
+  number.className = "step-number";
+  number.textContent = count + ".";
+
+  const stepInput = document.createElement("input");
+  stepInput.type = "text";
+  stepInput.name = "step[]";
+  stepInput.className = "step-input";
+  stepInput.placeholder = "Step description";
+  stepInput.required = true;
+
+  row.appendChild(number);
+  row.appendChild(stepInput);
 
   stepsContainer.appendChild(row);
 });
