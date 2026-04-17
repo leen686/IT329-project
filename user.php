@@ -110,9 +110,9 @@ $favouritesResult = mysqli_query($conn, $favouritesSql);
 
 function categoryClass($categoryName) {
     $name = strtolower(trim($categoryName));
-    if ($name == 'main dishes') return 'userTagIftar';
-    if ($name == 'healthy meals') return 'userTagSuhoor';
-    if ($name == 'desserts') return 'userTagSnacks';
+    if ($name == 'iftar') return 'userTagIftar';
+    if ($name == 'suhoor') return 'userTagSuhoor';
+    if ($name == 'snacks') return 'userTagSnacks';
     return '';
 }
 ?>
