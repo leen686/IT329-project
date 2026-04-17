@@ -105,7 +105,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
       <div class="nav-links">
         <a class="link" href="user.php">Home</a>
-        <a class="btn btn-primary" href="index.php">Log out</a>
+        <a class="btn btn-primary" href="signout.php">Log out</a>
       </div>
     </div>
   </div>
