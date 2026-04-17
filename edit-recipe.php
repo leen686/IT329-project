@@ -173,16 +173,54 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <!-- ingredients -->
 <h3>Ingredients *</h3>
-<?php while ($ing = mysqli_fetch_assoc($ingredientsResult)) { ?>
-<input type="text" name="ingredient_name[]" value="<?php echo $ing['ingredientName']; ?>" required>
-<input type="text" name="ingredient_qty[]" value="<?php echo $ing['ingredientQuantity']; ?>" required><br>
+
+<div id="edit-recipe-ingredients-container">
+<?php $i = 1; while ($ing = mysqli_fetch_assoc($ingredientsResult)) { ?>
+  
+  <div class="ingredient-row">
+    <span class="ingredient-number"><?php echo $i++; ?></span>
+
+    <input 
+      type="text" 
+      name="ingredient_name[]" 
+      class="ingredient-name"
+      value="<?php echo $ing['ingredientName']; ?>" 
+      required
+    >
+
+    <input 
+      type="text" 
+      name="ingredient_qty[]" 
+      class="ingredient-qty"
+      value="<?php echo $ing['ingredientQuantity']; ?>" 
+      required
+    >
+  </div>
+
 <?php } ?>
+</div>
 
 <!-- steps -->
 <h3>Steps *</h3>
-<?php while ($step = mysqli_fetch_assoc($stepsResult)) { ?>
-<input type="text" name="step[]" value="<?php echo $step['step']; ?>" required><br>
+<h3>Steps *</h3>
+
+<div id="edit-recipe-steps-container">
+<?php $i = 1; while ($step = mysqli_fetch_assoc($stepsResult)) { ?>
+
+  <div class="step-row">
+    <span class="step-number"><?php echo $i++; ?></span>
+
+    <input 
+      type="text" 
+      name="step[]" 
+      class="step-input"
+      value="<?php echo $step['step']; ?>" 
+      required
+    >
+  </div>
+
 <?php } ?>
+</div>
 
 <!-- video -->
 <label>Video or URL (optional)</label>
