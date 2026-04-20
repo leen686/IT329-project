@@ -45,11 +45,11 @@ if (isset($_POST['login'])) {
                 }
 
             } else {
-                $error = "Wrong password.";
+                $error = "Invalid email or password ";
             }
 
         } else {
-            $error = "User not found.";
+            $error = "Invalid email or password.";
         }
     }
 }
