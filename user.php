@@ -302,7 +302,7 @@ function categoryClass($categoryName) {
                 </a>
                 <span class="userTextSecondary userTextSmall">Saved recipe</span>
               </div>
-              <a class="userButtonRemove" href="remove_favourite.php?recipeID=<?php echo $fav['id']; ?>">Remove</a>
+              <a class="userButtonRemove" href="remove_favourite.php?recipeID=<?php echo $fav['id']; ?>">Remove</a> 
             </article>
           <?php } ?>
         </div>
