@@ -100,7 +100,7 @@ if (isset($_POST['login'])) {
       </a>
 
       <div class="nav-links">
-        <a class="link" href="index.html">Home</a>
+        <a class="link" href="index.php">Home</a>
         <a class="btn btn-primary" href="signUp.html">Sign up</a>
       </div>
     </div>
