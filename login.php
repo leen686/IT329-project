@@ -66,7 +66,7 @@ if (isset($_POST['login'])) {
 
   <div class="navbar">
     <div class="wrap nav-row">
-      <a class="brand" href="index.html">
+      <a class="brand" href="index.php">
         <img src="images/log.png" alt="Ramadan Light logo" class="brand-logo">
         <div class="brand-text">
           <div class="brand-name">Ramadan Light</div>
@@ -126,7 +126,7 @@ if (isset($_POST['login'])) {
         </div>
 
         <div class="center">
-          <a class="link" href="signUp.html">Sign up</a>
+          <a class="link" href="signup.php">Sign up</a>
         </div>
       </div>
     </div>
