@@ -222,6 +222,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </form>
   </main>
  
+ <!--Video File or URL, not both -->
  <script>
 const videoFileInput = document.querySelector('input[name="video_file"]');
 const videoURLInput = document.querySelector('input[name="video_url"]');
