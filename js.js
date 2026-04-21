@@ -80,6 +80,6 @@ if (signupForm) {
   signupForm.addEventListener("submit", function (e) {
     e.preventDefault();
     // Phase 1: no validation logic, just go to user page after submit
-    window.location.href = "user.html";
+    window.location.href = "user.php";
   });
 }
