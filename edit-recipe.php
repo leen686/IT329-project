@@ -202,7 +202,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <!-- steps -->
 <h3>Steps *</h3>
-<h3>Steps *</h3>
 
 <div id="edit-recipe-steps-container">
 <?php $i = 1; while ($step = mysqli_fetch_assoc($stepsResult)) { ?>
