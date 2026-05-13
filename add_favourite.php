@@ -3,12 +3,12 @@ session_start();
 include("db.php");
 
 if (!isset($_SESSION['userID'])) {
-    header("Location: login.php?error=You must login first");
+    echo "false";
     exit();
 }
 
 if ($_SERVER["REQUEST_METHOD"] != "POST") {
-    header("Location: user.php");
+    echo "false";
     exit();
 }
 
@@ -16,18 +16,22 @@ $userID = (int) $_SESSION['userID'];
 $recipeID = (int) ($_POST["recipeID"] ?? 0);
 
 if ($recipeID <= 0) {
-    header("Location: user.php");
+    echo "false";
     exit();
 }
+
+$success = false;
 
 $checkSql = "SELECT * FROM favourites WHERE userID = $userID AND recipeID = $recipeID";
 $checkResult = mysqli_query($conn, $checkSql);
 
 if ($checkResult && mysqli_num_rows($checkResult) == 0) {
     $insertSql = "INSERT INTO favourites (userID, recipeID) VALUES ($userID, $recipeID)";
-    mysqli_query($conn, $insertSql);
+    $success = mysqli_query($conn, $insertSql);
+} else if ($checkResult && mysqli_num_rows($checkResult) > 0) {
+    $success = true;
 }
 
-header("Location: viewrecipe.php?id=" . $recipeID);
+echo $success ? "true" : "false";
 exit();
 ?>
