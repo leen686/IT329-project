@@ -123,31 +123,40 @@ if ($resultReport && mysqli_num_rows($resultReport) > 0) {
           <div class="top-actions">
 
             <?php if ($isFavourite) { ?>
-             <button class="btn btn-active" disabled>Favourited ♥</button>
-             <?php } else { ?>
-               <form action="add_favourite.php" method="post" style="display:inline;">
-               <input type="hidden" name="recipeID" value="<?php echo $recipeID; ?>">
-                <button class="btn btn-outline" type="submit">Favourite ♥</button>
-             </form>
+              <button class="btn btn-active" disabled>Favourited ♥</button>
+            <?php } else { ?>
+              <button class="btn btn-outline ajax-action"
+                      data-url="add_favourite.php"
+                      data-recipe="<?php echo $recipeID; ?>"
+                      data-success-text="Favourited ♥"
+                      data-success-class="btn-active">
+                Favourite ♥
+              </button>
             <?php } ?>
 
             <?php if ($isLiked) { ?>
-             <button class="btn btn-active" disabled>Liked 👍</button>
-               <?php } else { ?>
-              <form action="add_like.php" method="post" style="display:inline;">
-               <input type="hidden" name="recipeID" value="<?php echo $recipeID; ?>">
-                <button class="btn btn-outline" type="submit">Like 👍</button>
-               </form>
+              <button class="btn btn-active" disabled>Liked 👍</button>
+            <?php } else { ?>
+              <button class="btn btn-outline ajax-action"
+                      data-url="add_like.php"
+                      data-recipe="<?php echo $recipeID; ?>"
+                      data-success-text="Liked 👍"
+                      data-success-class="btn-active">
+                Like 👍
+              </button>
             <?php } ?>
 
             <?php if ($isReported) { ?>
-               <button class="btn btn-active-danger" disabled>Reported ⚑</button>
-             <?php } else { ?>
-             <form action="add_report.php" method="post" style="display:inline;">
-                <input type="hidden" name="recipeID" value="<?php echo $recipeID; ?>">
-             <button class="btn btn-outline btn-danger" type="submit">Report ⚑</button>
-             </form>
-             <?php } ?>
+              <button class="btn btn-active-danger" disabled>Reported ⚑</button>
+            <?php } else { ?>
+              <button class="btn btn-outline btn-danger ajax-action"
+                      data-url="add_report.php"
+                      data-recipe="<?php echo $recipeID; ?>"
+                      data-success-text="Reported ⚑"
+                      data-success-class="btn-active-danger">
+                Report ⚑
+              </button>
+            <?php } ?>
 
           </div>
         <?php } ?>
@@ -245,5 +254,31 @@ if ($resultReport && mysqli_num_rows($resultReport) > 0) {
       <div>© 2026 Ramadan Light — Nourishing bodies and souls.</div>
     </div>
   </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $(".ajax-action").click(function () {
+        var button = $(this);
+
+        $.ajax({
+          url: button.data("url"),
+          type: "POST",
+          data: {
+            recipeID: button.data("recipe")
+          },
+          success: function (response) {
+            if ($.trim(response) === "true") {
+              button.prop("disabled", true);
+              button.text(button.data("success-text"));
+              button.removeClass("btn-outline btn-danger");
+              button.addClass(button.data("success-class"));
+            }
+          }
+        });
+      });
+    });
+  </script>
+
 </body>
 </html>
