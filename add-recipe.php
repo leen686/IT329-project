@@ -19,33 +19,58 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $categoryID = (int) $_POST['category'];
     $description = mysqli_real_escape_string($conn, $_POST['description']);
 
-    $photoName = $_FILES['photo']['name'];
-    $tempName = $_FILES['photo']['tmp_name'];
-
-    $newPhotoName = time() . "_" . $photoName;
-    move_uploaded_file($tempName, "images/" . $newPhotoName);
-
-    $videoPath = "";
-
-    if (!empty($_FILES['video_file']['name'])) {
-
-        $videoName = time() . "_" . $_FILES['video_file']['name'];
-        move_uploaded_file($_FILES['video_file']['tmp_name'], "videos/" . $videoName);
-        $videoPath = $videoName;
-
-            } elseif (!empty($_POST['video_url'])) {
-
-                $videoPath = mysqli_real_escape_string($conn, $_POST['video_url']);
-                    }
-
-    $insertRecipe = "
-        INSERT INTO recipe (userID, categoryID, name, description, photoFileName, videoFilePath)
-        VALUES ($userID, $categoryID, '$name', '$description', '$newPhotoName', '$videoPath')
-    ";
-    mysqli_query($conn, $insertRecipe);
+    // create recipe first
+    mysqli_query($conn, "
+        INSERT INTO recipe (userID, categoryID, name, description)
+        VALUES ($userID, $categoryID, '$name', '$description')
+    ");
 
     $recipeID = mysqli_insert_id($conn);
 
+    // ---------- PHOTO ----------
+    $photoFileName = "";
+
+    if (!empty($_FILES['photo']['name'])) {
+
+        $photoExtension = pathinfo($_FILES['photo']['name'], PATHINFO_EXTENSION);
+
+        $photoFileName = "recipe" . $recipeID . "_" . $photoExtension;
+
+        move_uploaded_file(
+            $_FILES['photo']['tmp_name'],
+            "images/" . $photoFileName
+        );
+    }
+
+    // ---------- VIDEO ----------
+    $videoPath = "";
+
+    // uploaded video file
+    if (!empty($_FILES['video_file']['name'])) {
+
+        $videoExtension = pathinfo($_FILES['video_file']['name'], PATHINFO_EXTENSION);
+
+        $videoPath = "recipe" . $recipeID . "_"  . $videoExtension;
+
+        move_uploaded_file(
+            $_FILES['video_file']['tmp_name'],
+            "videos/" . $videoPath
+        );
+
+    }
+    // video url
+    elseif (!empty($_POST['video_url'])) {
+
+        $videoPath = mysqli_real_escape_string($conn, $_POST['video_url']);
+    }
+
+    // update recipe with files
+    mysqli_query($conn, "
+        UPDATE recipe
+        SET photoFileName='$photoFileName',
+            videoFilePath='$videoPath'
+        WHERE id=$recipeID
+    ");
     if (!empty($_POST['ingredient_name']) && !empty($_POST['ingredient_qty'])) {
 
     foreach ($_POST['ingredient_name'] as $i => $ingName) {
