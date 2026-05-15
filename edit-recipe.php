@@ -45,23 +45,85 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $categoryID = (int) $_POST['category'];
     $description = mysqli_real_escape_string($conn, $_POST['description']);
 
-    $photoName = $recipe['photoFileName'];
+    // PHOTO
+$photoName = $recipe['photoFileName'];
 
-    if (!empty($_FILES['photo']['name'])) {
-        $newPhoto = time() . "_" . $_FILES['photo']['name'];
-        move_uploaded_file($_FILES['photo']['tmp_name'], "images/" . $newPhoto);
-        $photoName = $newPhoto;
+if (!empty($_FILES['photo']['name'])) {
+
+    if (
+        !empty($recipe['photoFileName']) &&
+        file_exists("images/" . $recipe['photoFileName'])
+    ) {
+        unlink("images/" . $recipe['photoFileName']);
     }
 
-    $videoPath = $recipe['videoFilePath'];
+    $tempPhotoName = $_FILES['photo']['name'];
 
-    if (!empty($_FILES['video_file']['name'])) {
-        $videoName = time() . "_" . $_FILES['video_file']['name'];
-        move_uploaded_file($_FILES['video_file']['tmp_name'], "videos/" . $videoName);
-        $videoPath = $videoName;
-    } elseif (!empty($_POST['video_url'])) {
-        $videoPath = mysqli_real_escape_string($conn, $_POST['video_url']);
+    $newPhotoName = "recipe_" . $recipeID . "_" . $tempPhotoName;
+
+    move_uploaded_file(
+        $_FILES['photo']['tmp_name'],
+        "images/" . $newPhotoName
+    );
+
+    $photoName = $newPhotoName;
+}
+
+// VIDEO
+$videoPath = $recipe['videoFilePath'];
+
+// upload new video file
+if (!empty($_FILES['video_file']['name'])) {
+
+    // delete old uploaded video only
+    if (
+        !empty($recipe['videoFilePath']) &&
+        !filter_var($recipe['videoFilePath'], FILTER_VALIDATE_URL) &&
+        file_exists("videos/" . $recipe['videoFilePath'])
+    ) {
+
+        unlink("videos/" . $recipe['videoFilePath']);
     }
+
+    // original filename
+    $videoName = basename($_FILES['video_file']['name']);
+
+    // new filename
+    $newVideoName = "recipe_" . $recipeID . "_" . $videoName;
+
+    move_uploaded_file(
+        $_FILES['video_file']['tmp_name'],
+        "videos/" . $newVideoName
+    );
+
+    $videoPath = $newVideoName;
+}
+
+// user entered URL
+elseif (!empty($_POST['video_url'])) {
+
+    // delete old uploaded video if exists
+    if (
+        !empty($recipe['videoFilePath']) &&
+        !filter_var($recipe['videoFilePath'], FILTER_VALIDATE_URL) &&
+        file_exists("videos/" . $recipe['videoFilePath'])
+    ) {
+
+        unlink("videos/" . $recipe['videoFilePath']);
+    }
+
+    $videoPath = mysqli_real_escape_string($conn, $_POST['video_url']);
+}
+
+// user removed URL
+elseif (
+    empty($_POST['video_url']) &&
+    !empty($recipe['videoFilePath']) &&
+    filter_var($recipe['videoFilePath'], FILTER_VALIDATE_URL)
+) {
+
+    $videoPath = "";
+}
 
     mysqli_query($conn, "
         UPDATE recipe 
@@ -284,5 +346,38 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   </div>
   
   <script src="js.js"></script>
+  
+  <script>
+const videoFileInput = document.querySelector('input[name="video_file"]');
+const videoURLInput = document.querySelector('input[name="video_url"]');
+
+// disable URL if file selected
+videoFileInput.addEventListener('change', () => {
+
+    if (videoFileInput.value !== "") {
+
+        videoURLInput.value = "";
+        videoURLInput.disabled = true;
+
+    } else {
+
+        videoURLInput.disabled = false;
+    }
+});
+
+// disable file if URL entered
+videoURLInput.addEventListener('input', () => {
+
+    if (videoURLInput.value !== "") {
+
+        videoFileInput.value = "";
+        videoFileInput.disabled = true;
+
+    } else {
+
+        videoFileInput.disabled = false;
+    }
+});
+</script>
 </body>
 </html>
